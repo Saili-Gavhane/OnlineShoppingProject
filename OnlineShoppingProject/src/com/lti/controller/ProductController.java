@@ -47,7 +47,7 @@ public class ProductController {
 		
 		category1.setCategory_name(category);
 		Category c = categoryService.addCategory(category1);
-		//int category_id = c.getCategory_id();
+		Category ct = categoryService.findById(c.getCategory_id());
 		
 		incomingProduct.setProduct_name(name);
 		incomingProduct.setProduct_base_price(base_price);
@@ -73,6 +73,23 @@ public class ProductController {
 		else
 		{
 			model = new  ModelAndView("addsuccess");
+		}
+		
+		return model;
+	}
+	@RequestMapping(value="/findCategory",method=RequestMethod.POST)
+	public ModelAndView findCategory(String name)
+	{
+		Category ct = categoryService.findByName(name);
+		ModelAndView model = null;
+		if(ct==null)
+		{
+			model = new  ModelAndView("addfailed");
+		}
+		else
+		{   
+			model = new  ModelAndView("findsuccess");
+			model.addObject("category",ct);
 		}
 		
 		return model;

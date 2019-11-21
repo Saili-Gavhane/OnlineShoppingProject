@@ -26,14 +26,19 @@ public class CategoryServiceImpl implements CategoryService {
 
 	@Override
 	public Category findById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return categoryRepository.findById(id);
 	}
 
 	@Override
 	public List<Category> findAllCategories() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public Category findByName(String name) {
+		// TODO Auto-generated method stub
+		return categoryRepository.findByName(name);
 	}
 
 }

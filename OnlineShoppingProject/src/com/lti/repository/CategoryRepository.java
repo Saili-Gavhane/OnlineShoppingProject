@@ -10,6 +10,7 @@ public interface CategoryRepository
 	public Category addCategory(Category c);
 	public Category updateCategory(Category c);
 	public Category findById(int id);
+	public Category findByName(String name);
 	//public Retailer findByEmail(String email);
 	public List<Category> findAllCategories();
 }
