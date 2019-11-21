@@ -37,6 +37,13 @@ public class BrandServiceImpl implements BrandService {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public Brand findByName(String name) {
+		// TODO Auto-generated method stub
+		return brandRepository.findByName(name);
+	}
+	
 	
 
 }

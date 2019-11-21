@@ -43,11 +43,16 @@ public class ProductController {
 		
 		brand.setBrand_name(brand_name);
 		Brand b = brandService.addBrand(brand);
+		Brand bd = brandService.findById(b.getBrand_id());
+		
 		//int brand_id = b.getBrand_id();
 		
 		category1.setCategory_name(category);
 		Category c = categoryService.addCategory(category1);
 		Category ct = categoryService.findById(c.getCategory_id());
+		
+		
+		
 		
 		incomingProduct.setProduct_name(name);
 		incomingProduct.setProduct_base_price(base_price);
@@ -90,6 +95,24 @@ public class ProductController {
 		{   
 			model = new  ModelAndView("findsuccess");
 			model.addObject("category",ct);
+		}
+		
+		return model;
+	}
+	
+	@RequestMapping(value="/findBrand",method=RequestMethod.POST)
+	public ModelAndView findBrand(String name)
+	{
+		Brand bd = brandService.findByName(name);
+		ModelAndView model = null;
+		if(bd==null)
+		{
+			model = new  ModelAndView("addfailed");
+		}
+		else
+		{   
+			model = new  ModelAndView("findbrandsuccess");
+			model.addObject("brand",bd);
 		}
 		
 		return model;
