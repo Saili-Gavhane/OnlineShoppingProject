@@ -28,4 +28,5 @@
 <tx:annotation-driven></tx:annotation-driven>
 
 <mvc:resources mapping="/resources/**" location="resources/"/>
+
 </beans>
