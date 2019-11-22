@@ -29,7 +29,7 @@ public class RetailerServiceImpl implements RetailerService {
 	@Override
 	public Retailer findById(int id) {
 		// TODO Auto-generated method stub
-		return null;
+		return retailerRepository.findById(id);
 	}
 
 	@Override
@@ -37,6 +37,24 @@ public class RetailerServiceImpl implements RetailerService {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
+	@Override
+	public Retailer login(Retailer r) {
+		Retailer userToBeReturned=null;
+		Retailer uDB= retailerRepository.findByEmail(r.getRetailer_email());
+		
+		if(uDB==null)
+		{
+			
+		}
+		else if(uDB.getRetailer_email().equals(r.getRetailer_email())&&(uDB.getRetailer_password().equals(r.getRetailer_password())))
+		{
+			userToBeReturned = uDB;
+		}
+		else
+		{
+			
+		}
+		return userToBeReturned;
+	}
 
 }

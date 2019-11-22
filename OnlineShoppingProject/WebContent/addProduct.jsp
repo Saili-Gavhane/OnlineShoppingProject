@@ -3,15 +3,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="css/text.css"  type="text/css">
 <meta charset="ISO-8859-1">
+<link rel="stylesheet" href="/css/text.css" type="css/text">
 <title>Add Product</title>
 
 
  <script type="text/javascript">
         var subcategory = {
             WomensFashion: ["Panash","Manywar Mohey",],
-            Electronics: ["Samsung","Motorola",],
+            Electronics: ["Samsung","Motorola","Nokia"],
             MensFashion: ["Adiddas","Fastrack",],
             HomeDecoration: ["DHomes","Naptol",],
         }

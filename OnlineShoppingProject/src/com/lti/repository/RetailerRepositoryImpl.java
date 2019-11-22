@@ -4,10 +4,12 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
 
+import com.lti.model.Admin;
 import com.lti.model.Retailer;
 @Repository("retailerRepository")
 public class RetailerRepositoryImpl implements RetailerRepository {
@@ -30,20 +32,24 @@ public class RetailerRepositoryImpl implements RetailerRepository {
 
 	@Override
 	public Retailer findById(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Retailer findByEmail(String email) {
-		// TODO Auto-generated method stub
-		return null;
+		Retailer r = em.find(Retailer.class, id);
+		return r;
 	}
 
 	@Override
 	public List<Retailer> findAllRetailers() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	@Transactional                                          
+	public Retailer findByEmail(String email) {
+		String q="Select r from Retailer r where r.retailer_email =?1";
+		TypedQuery<Retailer> query = em.createQuery(q,Retailer.class);
+		query.setParameter(1,email);
+		//query.setParameter(2,nbOfPage);
+	
+		Retailer u= query.getSingleResult();
+		return u;		
 	}
 
 }

@@ -10,5 +10,6 @@ public interface RetailerService {
 	public Retailer findById(int id);
 	//public Retailer findByEmail(String email);
 	public List<Retailer> findAllRetailers();
+	public Retailer login(Retailer r);
 
 }

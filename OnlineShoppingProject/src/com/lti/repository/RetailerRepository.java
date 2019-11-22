@@ -11,4 +11,5 @@ public interface RetailerRepository
 	public Retailer findById(int id);
 	public Retailer findByEmail(String email);
 	public List<Retailer> findAllRetailers();
+	
 }

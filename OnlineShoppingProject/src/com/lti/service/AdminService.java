@@ -10,5 +10,6 @@ public interface AdminService {
 	public Admin findById(int id);
 	public Admin findByEmail(String email);
 	public List<Admin> findAllUsers();
+	public Admin login(Admin a);
 
 }

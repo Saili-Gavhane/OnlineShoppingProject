@@ -10,7 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.lti.model.BankDetails;
 
 import com.lti.model.Retailer;
-import com.lti.model.RetailerAddress;
+//import com.lti.model.RetailerAddress;
 
 import com.lti.service.BankDetailsService;
 import com.lti.service.RetailerAddressService;
@@ -27,7 +27,7 @@ public class RetailerController {
 	
 	
 	@RequestMapping(value="/addRetailer",method=RequestMethod.POST)
-	public ModelAndView addRetailer(@RequestParam String name,@RequestParam String email,@RequestParam String GSTNo,@RequestParam int mobile_no,@RequestParam String address1,@RequestParam String address2, @RequestParam String city,@RequestParam String state,@RequestParam int zipcode, @RequestParam String country,@RequestParam String PAN_no,@RequestParam int aadhar_no,String password,@RequestParam int account_no,@RequestParam String holder_name,@RequestParam String bank_name,@RequestParam String code,@RequestParam String branch)
+	public ModelAndView addRetailer(@RequestParam String name,@RequestParam String email,@RequestParam String GSTNo,@RequestParam String mobile_no,@RequestParam String address1,@RequestParam String address2, @RequestParam String city,@RequestParam String state,@RequestParam int zipcode, @RequestParam String country,@RequestParam String PAN_no,@RequestParam String aadhar_no,String password,@RequestParam String account_no,@RequestParam String holder_name,@RequestParam String bank_name,@RequestParam String code,@RequestParam String branch)
 	{
 			
 		Retailer retailer = new Retailer();
@@ -37,8 +37,8 @@ public class RetailerController {
 		bank.setBank_name(bank_name);
 		bank.setIfsc_code(code);
 		bank.setBank_branch(branch);
-		BankDetails b = bankDetailsService.addBankDetails(bank);
-		RetailerAddress address = new RetailerAddress();
+		//BankDetails b = bankDetailsService.addBankDetails(bank);
+		//RetailerAddress address = new RetailerAddress();
 		
 		
 		retailer.setRetailer_name(name);
@@ -49,10 +49,10 @@ public class RetailerController {
 		retailer.setPan_no(PAN_no);
 		retailer.setRetailer_password(password);
 		retailer.setRemark("");
-		retailer.setBankdetails(b);
+		retailer.setBankdetails(bank);
 		Retailer r = retailerService.addRetailer(retailer);
 		
-		address.setAddressline_1(address1);
+		/*address.setAddressline_1(address1);
 		address.setAddressline_2(address2);
 		address.setCity(city);
 		address.setState(state);
@@ -60,18 +60,39 @@ public class RetailerController {
 		address.setCountry(country);
 		address.setRetailer(r);
 		
-		RetailerAddress rd = retailerAddressService.addRetailerAddress(address);
+		RetailerAddress rd = retailerAddressService.addRetailerAddress(address);*/
 		
 		
 		
 		ModelAndView model = null;
-		if(rd==null)
+		if(r==null)
 		{
 			model = new  ModelAndView("addfailed");
 		}
 		else
 		{
-			model = new  ModelAndView("addsuccess");
+			model = new  ModelAndView("retailerAddress");
+			model.addObject("retailer",r);
+		}
+		
+		return model;
+	}
+	@RequestMapping(value="/RetailerLogin",method=RequestMethod.POST)
+	public ModelAndView RetailerLogin (@RequestParam String username, @RequestParam String password)
+	{
+		Retailer incomingRetailer = new Retailer();
+		incomingRetailer.setRetailer_email(username);
+		incomingRetailer.setRetailer_password(password);
+		
+		Retailer a = retailerService.login(incomingRetailer);
+		ModelAndView model = null;
+		if(a==null)
+		{
+			model = new  ModelAndView("loginfailed");
+		}
+		else
+		{
+			model = new  ModelAndView("loginsuccess");
 		}
 		
 		return model;

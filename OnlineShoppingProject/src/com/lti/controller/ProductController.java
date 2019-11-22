@@ -31,29 +31,22 @@ public class ProductController {
 	StockService stockService;
 	
 	@RequestMapping(value="/addProduct",method=RequestMethod.POST)
-	public ModelAndView addRetailer(@RequestParam String name,@RequestParam float base_price,@RequestParam String category,@RequestParam String description,@RequestParam String brand_name,@RequestParam int product_count)
+	public ModelAndView addProduct(@RequestParam String name,@RequestParam float base_price,@RequestParam String category,@RequestParam String description,@RequestParam String brand_name,@RequestParam int product_count)
 	{
 		Product incomingProduct = new Product();
 		Category category1 = new Category();
 		Brand brand = new Brand();
 		Stock stock = new Stock();
 		
-		Retailer r = new Retailer();
-		r.setRetailer_id(3);
-		
-		brand.setBrand_name(brand_name);
-		Brand b = brandService.addBrand(brand);
-		Brand bd = brandService.findById(b.getBrand_id());
-		
-		//int brand_id = b.getBrand_id();
+		Retailer r1 = new Retailer();
+		r1=retailerService.findById(1);
 		
 		category1.setCategory_name(category);
-		Category c = categoryService.addCategory(category1);
-		Category ct = categoryService.findById(c.getCategory_id());
 		
 		
+		brand.setBrand_name(brand_name);
 		
-		
+		//int brand_id = b.getBrand_id();
 		incomingProduct.setProduct_name(name);
 		incomingProduct.setProduct_base_price(base_price);
 		incomingProduct.setDescription(description);
@@ -62,7 +55,7 @@ public class ProductController {
 		incomingProduct.setApproval_status("approved");
 		incomingProduct.setBrand1(brand);
 		incomingProduct.setCategory(category1);
-		incomingProduct.setRetailer(r);
+		incomingProduct.setRetailer(r1);
 		Product p = productService.addProduct(incomingProduct);
 		
 		stock.setProduct_count(product_count);

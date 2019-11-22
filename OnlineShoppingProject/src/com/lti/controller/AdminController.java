@@ -4,9 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.lti.model.Admin;
+
 import com.lti.service.AdminService;
 @Controller
 public class AdminController {
@@ -29,6 +31,27 @@ public class AdminController {
 		else
 		{
 			model = new  ModelAndView("addsuccess");
+		}
+		
+		return model;
+	}
+	
+	@RequestMapping(value="/AdminLogin",method=RequestMethod.POST)
+	public ModelAndView numberCheck (@RequestParam String username, @RequestParam String password)
+	{
+		Admin incomingAdmin = new Admin();
+		incomingAdmin.setAdmin_email(username);
+		incomingAdmin.setAdmin_password(password);
+		
+		Admin a = service.login(incomingAdmin);
+		ModelAndView model = null;
+		if(a==null)
+		{
+			model = new  ModelAndView("loginfailed");
+		}
+		else
+		{
+			model = new  ModelAndView("loginsuccess");
 		}
 		
 		return model;

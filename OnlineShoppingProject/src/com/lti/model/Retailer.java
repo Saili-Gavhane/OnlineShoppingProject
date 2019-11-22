@@ -3,7 +3,6 @@ package com.lti.model;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,31 +11,30 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
 
 
 @Entity
+@Table(name="Retailer1")
 public class Retailer {
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "retailer_seq")
-	@SequenceGenerator(sequenceName = "retailer_seq", name = "retailer_seq", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "retailer1_seq")
+	@SequenceGenerator(sequenceName = "retailer1_seq", name = "retailer1_seq", allocationSize = 1)
 	int retailer_id;
 	String retailer_name;
 	String retailer_email;
 	String retailer_password;
-	int retailer_mobileno;
+	String retailer_mobileno;
 	String gst_no;
 	String pan_no;
-	int aadhar_no;
+	String aadhar_no;
 	String approval_status;
 	String remark;
 	
 	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name="bank_details_id")
+	@JoinColumn(name="bankdetails_id")
 	private BankDetails bankdetails;
-	
-	@OneToOne(mappedBy="retailer")
-	private Product product;
 	
 	@OneToMany(mappedBy="retailer")
     private Set<RetailerAddress> retaileraddress;
@@ -47,7 +45,7 @@ public class Retailer {
 	}
 
 public Retailer(int retailer_id, String retailer_name, String retailer_email, String retailer_password,
-			int retailer_mobileno, String gst_no, String pan_no, int aadhar_no, String approval_status,
+			String retailer_mobileno, String gst_no, String pan_no, String aadhar_no, String approval_status,
 			String remark, BankDetails bankdetails, Brand brand, Set<RetailerAddress> retaileraddress) {
 		super();
 		this.retailer_id = retailer_id;
@@ -119,11 +117,11 @@ public Retailer(int retailer_id, String retailer_name, String retailer_email, St
 		this.retailer_password = retailer_password;
 	}
 
-	public int getRetailer_mobileno() {
+	public String getRetailer_mobileno() {
 		return retailer_mobileno;
 	}
 
-	public void setRetailer_mobileno(int retailer_mobileno) {
+	public void setRetailer_mobileno(String retailer_mobileno) {
 		this.retailer_mobileno = retailer_mobileno;
 	}
 
@@ -143,11 +141,11 @@ public Retailer(int retailer_id, String retailer_name, String retailer_email, St
 		this.pan_no = pan_no;
 	}
 
-	public int getAadhar_no() {
+	public String getAadhar_no() {
 		return aadhar_no;
 	}
 
-	public void setAadhar_no(int aadhar_no) {
+	public void setAadhar_no(String aadhar_no) {
 		this.aadhar_no = aadhar_no;
 	}
 
@@ -165,7 +163,7 @@ public Retailer(int retailer_id, String retailer_name, String retailer_email, St
 				+ retailer_email + ", retailer_password=" + retailer_password + ", retailer_mobileno="
 				+ retailer_mobileno + ", gst_no=" + gst_no + ", pan_no=" + pan_no + ", aadhar_no=" + aadhar_no
 				+ ", approval_status=" + approval_status + ", remark=" + remark + ", bankdetails=" + bankdetails
-				+ ", product=" + product + ", retaileraddress=" + retaileraddress + "]";
+				+ ", retaileraddress=" + retaileraddress + "]";
 	}
 
 

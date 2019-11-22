@@ -10,5 +10,6 @@ public interface AdminRepository {
 	public Admin findById(int id);
 	public Admin findByEmail(String email);
 	public List<Admin> findAllUsers();
+	
 
 }
