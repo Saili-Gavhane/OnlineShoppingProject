@@ -10,10 +10,10 @@
 
  <script type="text/javascript">
         var subcategory = {
-            WomensFashion: ["Panash","Manywar Mohey",],
+            Womens_Fashion: ["Panash","Manyawar Mohey"],
             Electronics: ["Samsung","Motorola","Nokia"],
-            MensFashion: ["Adiddas","Fastrack",],
-            HomeDecoration: ["DHomes","Naptol",],
+            Mens_Fashion: ["Adiddas","Fastrack",],
+            Home_Decoration: ["DHomes","Naptol",],
         }
 
         function makeSubmenu(value) {
@@ -54,9 +54,9 @@
 <td><select class="input" id="category" name="category" onchange="makeSubmenu(this.value)">
 <option value="" disabled selected>Choose Category</option>
 <option>Electronics</option>
-<option>WomensFashion</option>
-<option>MensFashion</option>
-<option>HomeDecoration</option>
+<option>Womens_Fashion</option>
+<option>Mens_Fashion</option>
+<option>Home_Decoration</option>
 </select>
 </td>
 </tr>
