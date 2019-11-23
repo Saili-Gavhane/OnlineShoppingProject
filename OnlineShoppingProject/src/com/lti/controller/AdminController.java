@@ -1,5 +1,11 @@
 package com.lti.controller;
 
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -8,12 +14,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.lti.model.Admin;
-
+import com.lti.model.Retailer;
 import com.lti.service.AdminService;
+import com.lti.service.RetailerService;
 @Controller
 public class AdminController {
 	@Autowired
 	AdminService service;
+	@Autowired
+	RetailerService retailerService;
+	@PersistenceContext
+	EntityManager em;
 	
 	@RequestMapping(value="/addAdmin",method=RequestMethod.POST)
 	public ModelAndView addCustomer(String name, String email,String password)
@@ -44,6 +55,7 @@ public class AdminController {
 		incomingAdmin.setAdmin_password(password);
 		
 		Admin a = service.login(incomingAdmin);
+		List<Retailer> listRetailer=retailerService.findAllRetailers();
 		ModelAndView model = null;
 		if(a==null)
 		{
@@ -51,10 +63,29 @@ public class AdminController {
 		}
 		else
 		{
-			model = new  ModelAndView("loginsuccess");
+			model = new  ModelAndView("AdminLoginSuccess");
+			model.addObject("listRetailer", listRetailer);
 		}
 		
 		return model;
 	}
-
+	@RequestMapping(value = "/activateRetailer",method =RequestMethod.GET)
+	@Transactional
+	public ModelAndView ActivateRetailer(@RequestParam int id,@RequestParam String status)
+	{
+		Retailer r=new Retailer();
+	
+	
+		 r=retailerService.findById(id);
+		 if(status.equals("Active"))
+		 r.setApproval_status("Active");
+		 else
+			 r.setApproval_status("Deactive");
+		 r = em.merge(r);	 
+		 em.persist(r);
+		 
+		ModelAndView model = null;
+		model = new  ModelAndView("");
+		return model;
+	}
 }

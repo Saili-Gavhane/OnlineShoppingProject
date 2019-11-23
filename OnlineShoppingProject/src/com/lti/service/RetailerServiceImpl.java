@@ -35,7 +35,7 @@ public class RetailerServiceImpl implements RetailerService {
 	@Override
 	public List<Retailer> findAllRetailers() {
 		// TODO Auto-generated method stub
-		return null;
+		return retailerRepository.findAllRetailers();
 	}
 	@Override
 	public Retailer login(Retailer r) {

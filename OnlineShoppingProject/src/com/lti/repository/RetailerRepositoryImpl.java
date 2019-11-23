@@ -36,10 +36,10 @@ public class RetailerRepositoryImpl implements RetailerRepository {
 		return r;
 	}
 
-	@Override
+	@Transactional
 	public List<Retailer> findAllRetailers() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Retailer> listRetailer=em.createQuery("SELECT r FROM Retailer r").getResultList();
+		return listRetailer;
 	}
 	@Transactional                                          
 	public Retailer findByEmail(String email) {
