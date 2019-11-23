@@ -4,17 +4,17 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.PersistenceContextType;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
 
-import com.lti.model.Admin;
 import com.lti.model.Retailer;
 @Repository("retailerRepository")
 public class RetailerRepositoryImpl implements RetailerRepository {
 
-	@PersistenceContext
+	@PersistenceContext(type = PersistenceContextType.EXTENDED)
     EntityManager em;
 	
 	@Transactional

@@ -14,8 +14,8 @@ import javax.persistence.SequenceGenerator;
 @Entity
 public class Product {
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "product_seq")
-	@SequenceGenerator(sequenceName = "product_seq", name = "product_seq", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "productseq1")
+	@SequenceGenerator(sequenceName = "productseq1", name = "productseq1", allocationSize = 1)
 	int product_id;
 	String product_name;
 	float product_base_price;
@@ -67,7 +67,6 @@ public class Product {
 		this.retailer = retailer;
 		this.brand1 = brand1;
 		this.category = category;
-		this.stock = stock;
 		
 	}
 
@@ -153,14 +152,6 @@ public class Product {
 		this.category = category;
 	}
 
-	public Stock getStock() {
-		return stock;
-	}
-
-	public void setStock(Stock stock) {
-		this.stock = stock;
-	}
-
 
 
 
@@ -171,7 +162,7 @@ public class Product {
 		return "Product [product_id=" + product_id + ", product_name=" + product_name + ", product_base_price="
 				+ product_base_price + ", product_image=" + product_image + ", product_update_date="
 				+ product_update_date + ", description=" + description + ", approval_status=" + approval_status
-				+ ", retailer=" + retailer + ", brand1=" + brand1 + ", category=" + category + ", stock=" + stock+"]";
+				+ ", retailer=" + retailer + ", brand1=" + brand1 + ", category=" + category + "]";
 	}
 
 

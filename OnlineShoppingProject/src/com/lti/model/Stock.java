@@ -12,8 +12,8 @@ import javax.persistence.SequenceGenerator;
 @Entity
 public class Stock {
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "stock_seq")
-	@SequenceGenerator(sequenceName = "stock_seq", name = "stock_seq", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "stockseq1")
+	@SequenceGenerator(sequenceName = "stockseq1", name = "stockseq1", allocationSize = 1)
 	int stock_id;
 	int product_count;
 	

@@ -12,7 +12,7 @@
 <title>Retailer Sign In Page</title>
 </head>
 <body>
-<form action="/OnlineShoppingProject/RetailerLogin" method="Post" autocomplete="off">
+<form action="/OnlineShoppingProject/RetailerLogin" method="Post">
 <center><h2>Retailer Login </h2></center>
 <table align="center">
 <tr>

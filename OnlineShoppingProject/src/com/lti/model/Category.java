@@ -6,11 +6,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 @Entity
+@Table(name="category1")
 public class Category {
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "category_seq")
-	@SequenceGenerator(sequenceName = "category_seq", name = "category_seq", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "categoryseq1")
+	@SequenceGenerator(sequenceName = "categoryseq1", name = "categoryseq1", allocationSize = 1)
 	int category_id;
 	String category_name;
 	@OneToOne(mappedBy="category")
@@ -23,7 +25,6 @@ public class Category {
 		super();
 		this.category_id = category_id;
 		this.category_name = category_name;
-		this.product = product;
 	}
 	public int getCategory_id() {
 		return category_id;
@@ -37,16 +38,9 @@ public class Category {
 	public void setCategory_name(String category_name) {
 		this.category_name = category_name;
 	}
-	public Product getProduct() {
-		return product;
-	}
-	public void setProduct(Product product) {
-		this.product = product;
-	}
 	@Override
 	public String toString() {
-		return "Category [category_id=" + category_id + ", category_name=" + category_name + ", product=" + product
-				+ "]";
+		return "Category [category_id=" + category_id + ", category_name=" + category_name + "]";
 	}
 	
 

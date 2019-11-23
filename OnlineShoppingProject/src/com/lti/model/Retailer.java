@@ -4,6 +4,7 @@ import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -19,8 +20,8 @@ import javax.persistence.Table;
 @Table(name="Retailer1")
 public class Retailer {
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "retailer1_seq")
-	@SequenceGenerator(sequenceName = "retailer1_seq", name = "retailer1_seq", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "retailerseq1")
+	@SequenceGenerator(sequenceName = "retailerseq1", name = "retailerseq1", allocationSize = 1)
 	int retailer_id;
 	String retailer_name;
 	String retailer_email;
@@ -32,11 +33,11 @@ public class Retailer {
 	String approval_status;
 	String remark;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name="bankdetails_id")
 	private BankDetails bankdetails;
 	
-	@OneToMany(mappedBy="retailer")
+	@OneToMany(mappedBy="retailer",fetch=FetchType.LAZY)
     private Set<RetailerAddress> retaileraddress;
 
 	public Retailer() {
@@ -46,7 +47,7 @@ public class Retailer {
 
 public Retailer(int retailer_id, String retailer_name, String retailer_email, String retailer_password,
 			String retailer_mobileno, String gst_no, String pan_no, String aadhar_no, String approval_status,
-			String remark, BankDetails bankdetails, Brand brand, Set<RetailerAddress> retaileraddress) {
+			String remark, BankDetails bankdetails, Brand brand) {
 		super();
 		this.retailer_id = retailer_id;
 		this.retailer_name = retailer_name;
@@ -59,7 +60,6 @@ public Retailer(int retailer_id, String retailer_name, String retailer_email, St
 		this.approval_status = approval_status;
 		this.remark = remark;
 		this.bankdetails = bankdetails;
-		this.retaileraddress = retaileraddress;
 	}
 	public String getApproval_status() {
 		return approval_status;
@@ -157,13 +157,13 @@ public Retailer(int retailer_id, String retailer_name, String retailer_email, St
 		this.bankdetails = bankdetails;
 	}
 
-	@Override
-	public String toString() {
+
+	public String toString1() {
 		return "Retailer [retailer_id=" + retailer_id + ", retailer_name=" + retailer_name + ", retailer_email="
 				+ retailer_email + ", retailer_password=" + retailer_password + ", retailer_mobileno="
 				+ retailer_mobileno + ", gst_no=" + gst_no + ", pan_no=" + pan_no + ", aadhar_no=" + aadhar_no
 				+ ", approval_status=" + approval_status + ", remark=" + remark + ", bankdetails=" + bankdetails
-				+ ", retaileraddress=" + retaileraddress + "]";
+				+ "]";
 	}
 
 

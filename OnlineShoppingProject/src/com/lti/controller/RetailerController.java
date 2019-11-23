@@ -27,7 +27,7 @@ public class RetailerController {
 	
 	
 	@RequestMapping(value="/addRetailer",method=RequestMethod.POST)
-	public ModelAndView addRetailer(@RequestParam String name,@RequestParam String email,@RequestParam String GSTNo,@RequestParam String mobile_no,@RequestParam String address1,@RequestParam String address2, @RequestParam String city,@RequestParam String state,@RequestParam int zipcode, @RequestParam String country,@RequestParam String PAN_no,@RequestParam String aadhar_no,String password,@RequestParam String account_no,@RequestParam String holder_name,@RequestParam String bank_name,@RequestParam String code,@RequestParam String branch)
+	public ModelAndView addRetailer(@RequestParam String name,@RequestParam String email,@RequestParam String GSTNo,@RequestParam String mobile_no,@RequestParam String PAN_no,@RequestParam String aadhar_no,String password,@RequestParam String account_no,@RequestParam String holder_name,@RequestParam String bank_name,@RequestParam String code,@RequestParam String branch)
 	{
 			
 		Retailer retailer = new Retailer();
@@ -92,7 +92,7 @@ public class RetailerController {
 		}
 		else
 		{
-			model = new  ModelAndView("loginsuccess");
+			model = new  ModelAndView("retailerLoginSuccess");
 		}
 		
 		return model;

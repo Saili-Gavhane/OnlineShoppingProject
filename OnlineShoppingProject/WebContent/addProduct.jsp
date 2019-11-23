@@ -1,19 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+ 
+        <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page session="false" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link rel="stylesheet" href="/css/text.css" type="css/text">
 <title>Add Product</title>
-
+<link rel="stylesheet" href="resources/css/text.css"  type="text/css">
 
  <script type="text/javascript">
         var subcategory = {
             Womens_Fashion: ["Panash","Manyawar Mohey"],
             Electronics: ["Samsung","Motorola","Nokia"],
             Mens_Fashion: ["Adiddas","Fastrack",],
-            Home_Decoration: ["DHomes","Naptol",],
+            Home_Decoration: ["Borosil","Cello","RiddhieR","Homebuddy","KitchenPro","Butterfly","Prestige","Kitchoff","Solimo","Hawkins","Russell","Bajaj","Lifelong","Signora","SheetKart","Bharat","Cortina"],
         }
 
         function makeSubmenu(value) {
@@ -74,7 +78,8 @@
 
 <tr><td>Product Base Price</td><td><input class="input" type="text" name="base_price" size="15"></td></tr>  
 <tr><td>Product Count</td><td><input class="input" type="number" name="product_count"  ></td></tr> 
-<tr><td>Product Image</td><td><input class="input" type="file" name="image" accept="image/*"></td></tr> 
+<tr><td>Product Image</td><td><input class="input" type="file" name="image"></td></tr> 
+<tr><td>Product Image Name</td><td><input class="input" type="text" name="image_name"></td></tr> 
 <tr><td colspan="2"><input class="button" type="submit" href="" name="Add Product" value="Send for approval"></td></tr>
 </table>
 

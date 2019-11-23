@@ -2,6 +2,7 @@ package com.lti.model;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -14,8 +15,8 @@ import javax.persistence.Table;
 @Table(name="retailer_address")
 public class RetailerAddress {
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "retaileraddress_seq")
-	@SequenceGenerator(sequenceName = "retaileraddress_seq", name = "retaileraddress_seq", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "retailer_address1")
+	@SequenceGenerator(sequenceName = "retailer_address1", name = "retailer_address1", allocationSize = 1)
 	int retailer_address_id;
 	String addressline_1;
 	String addressline_2;
@@ -23,7 +24,7 @@ public class RetailerAddress {
 	String state;
 	String country;
 	int zipcode;
-	 @ManyToOne(cascade = CascadeType.ALL)
+	 @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
 	    @JoinColumn(name="retailer_id", nullable=false)
 	    private Retailer retailer;
 	public RetailerAddress() {
@@ -90,8 +91,8 @@ public class RetailerAddress {
 	public void setRetailer(Retailer retailer) {
 		this.retailer = retailer;
 	}
-	@Override
-	public String toString() {
+
+	public String toString1() {
 		return "RetailerAddress [retailer_address_id=" + retailer_address_id + ", addressline_1=" + addressline_1
 				+ ", addressline_2=" + addressline_2 + ", city=" + city + ", state=" + state + ", country=" + country
 				+ ", zipcode=" + zipcode + ", retailer=" + retailer + "]";

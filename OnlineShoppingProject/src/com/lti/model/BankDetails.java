@@ -12,8 +12,8 @@ import javax.persistence.Table;
 @Table(name="bankdetails")
 public class BankDetails {
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "bank_seq")
-	@SequenceGenerator(sequenceName = "bank_seq", name = "bank_seq", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "bank1")
+	@SequenceGenerator(sequenceName = "bank1", name = "bank1", allocationSize = 1)
 	int bankdetails_id;
 	String account_holder_name;
 	String account_no;

@@ -6,16 +6,18 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 @Entity
+@Table(name="brand1")
 public class Brand {
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "brand_seq")
-	@SequenceGenerator(sequenceName = "brand_seq", name = "brand_seq", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "brandseq1")
+	@SequenceGenerator(sequenceName = "brandseq1", name = "brandseq1", allocationSize = 1)
 	int brand_id;
 	String brand_name;
 	
 	@OneToOne(mappedBy="brand1")
-	private Product product;
+	Product product;
 	
 	
 	public Brand() {
@@ -26,7 +28,7 @@ public class Brand {
 		super();
 		this.brand_id = brand_id;
 		this.brand_name = brand_name;
-		this.product = product;
+		
 		
 	}
 
@@ -43,15 +45,10 @@ public class Brand {
 		this.brand_name = brand_name;
 	}
 
-	public Product getProduct() {
-		return product;
-	}
-	public void setProduct(Product product) {
-		this.product = product;
-	}
+
 	@Override
 	public String toString() {
-		return "Brand [brand_id=" + brand_id + ", brand_name=" + brand_name + ", product=" + product + "]";
+		return "Brand [brand_id=" + brand_id + ", brand_name=" + brand_name + "]";
 	}
 	
 	
