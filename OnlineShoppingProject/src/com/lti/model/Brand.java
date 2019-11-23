@@ -1,10 +1,12 @@
 package com.lti.model;
 
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 @Entity
@@ -16,8 +18,8 @@ public class Brand {
 	int brand_id;
 	String brand_name;
 	
-	@OneToOne(mappedBy="brand1")
-	Product product;
+	@OneToMany(mappedBy="brand1")
+	private Set<Product> product;
 	
 	
 	public Brand() {

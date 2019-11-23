@@ -93,9 +93,28 @@ public class RetailerController {
 		else
 		{
 			model = new  ModelAndView("retailerLoginSuccess");
+			model.addObject("retailer",a);
 		}
 		
 		return model;
 	}
-
+	@RequestMapping(value="/Id",method=RequestMethod.POST)
+	public ModelAndView getId (@RequestParam int id)
+	{
+		Retailer r = retailerService.findById(id);
+		ModelAndView model = null;
+		if(r==null)
+		{
+			model = new  ModelAndView("loginfailed");
+		}
+		else
+		{
+			model = new  ModelAndView("addProduct");
+			model.addObject("retailer",r);
+		}
+		
+		return model;
+	}
 }
+
+

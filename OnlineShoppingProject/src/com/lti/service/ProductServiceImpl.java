@@ -27,8 +27,7 @@ public class ProductServiceImpl implements ProductService{
 
 	@Override
 	public Product findById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return productRepository.findById(id);
 	}
 
 	

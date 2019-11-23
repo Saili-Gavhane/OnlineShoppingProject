@@ -1,10 +1,12 @@
 package com.lti.model;
 
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 @Entity
@@ -15,8 +17,8 @@ public class Category {
 	@SequenceGenerator(sequenceName = "categoryseq1", name = "categoryseq1", allocationSize = 1)
 	int category_id;
 	String category_name;
-	@OneToOne(mappedBy="category")
-	private Product product;
+	@OneToMany(mappedBy="category")
+	private Set<Product> product;
 	public Category() {
 		super();
 		// TODO Auto-generated constructor stub

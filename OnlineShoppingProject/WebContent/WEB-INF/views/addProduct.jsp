@@ -46,10 +46,10 @@
 
         <br>
 
-<form action="/OnlineShoppingProject/addProduct" method="POST"> 
+<form action="/OnlineShoppingProject/addProduct" method="POST" enctype="multipart/form-data"> 
 
 <table align="center"> 
-
+<tr><td>Retailer Id</td><td><input class="input" type="text" name="id" value="${retailer.retailer_id}" size="20"></td></tr> 
 <tr><td>Product Name</td><td><input class="input" type="text" name="name" size="20"></td></tr> 
 <tr><td>Product Description</td><td><input class="input" type="text" name="description" size="30"></td></tr> 
 
@@ -79,7 +79,6 @@
 <tr><td>Product Base Price</td><td><input class="input" type="text" name="base_price" size="15"></td></tr>  
 <tr><td>Product Count</td><td><input class="input" type="number" name="product_count"  ></td></tr> 
 <tr><td>Product Image</td><td><input class="input" type="file" name="image"></td></tr> 
-<tr><td>Product Image Name</td><td><input class="input" type="text" name="image_name"></td></tr> 
 <tr><td colspan="2"><input class="button" type="submit" href="" name="Add Product" value="Send for approval"></td></tr>
 </table>
 

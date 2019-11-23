@@ -32,8 +32,8 @@ public class ProductRepositoryImpl implements ProductRepository {
 
 	@Override
 	public Product findById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		Product p = em.find(Product.class, id);
+		return p;
 	}
 
 	@Override

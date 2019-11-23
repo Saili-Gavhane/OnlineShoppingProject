@@ -39,6 +39,10 @@ public class Retailer {
 	
 	@OneToMany(mappedBy="retailer",fetch=FetchType.LAZY)
     private Set<RetailerAddress> retaileraddress;
+	
+	@OneToMany(mappedBy="retailer")
+	 private Set<Product> product;
+	
 
 	public Retailer() {
 		super();
