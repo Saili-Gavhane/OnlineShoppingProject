@@ -6,6 +6,8 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
+import javax.servlet.ServletContext;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,6 +39,8 @@ public class ProductController {
 	RetailerService retailerService;
 	@Autowired
 	StockService stockService;
+	@Autowired
+	ServletContext servletContext;
 	
 	@RequestMapping(value="/addProduct",method=RequestMethod.POST)
 	@ResponseBody
@@ -56,7 +60,8 @@ public class ProductController {
 		incomingProduct.setProduct_base_price(base_price);
 		incomingProduct.setDescription(description);
 		
-		String path = "/OnlineShoppingProject/WebContent/resources/";
+		String path = servletContext.getRealPath("")+"/resources/images/";
+		System.out.println(path);
 		String finalpath = path + m.getOriginalFilename();
 		
 		try {
