@@ -327,6 +327,7 @@ body {
             slides[slide_index - 1].style.display = "block";  
         }  
     </script>  
+    <img src="D:/ShopDrop_Images/2.jpg">
 
 <table border="1" cellpadding="5">
         <c:forEach items="${listProduct}" var="Product">
@@ -334,6 +335,7 @@ body {
             <tr> <td>${Product.product_base_price}</td></tr>
              <tr> <td>${Product.product_image}</td></tr>
                <tr><td>${Product.description}</td></tr>
+               
         </c:forEach>
     </table>
 </body>

@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -124,6 +125,22 @@ public class ProductController {
 			model.addObject("brand",bd);
 		}
 		
+		return model;
+	}
+	@RequestMapping(value="/viewProduct",method=RequestMethod.GET)
+	public ModelAndView findAllProducts()
+	{
+		List<Product> listProduct = productService.findAllProducts();
+		ModelAndView model = null;
+		if(listProduct==null)
+		{
+			model = new  ModelAndView("loginfailed");
+		}
+		else
+		{
+			model = new  ModelAndView("viewProduct");
+			model.addObject("listProduct", listProduct);
+		}
 		return model;
 	}
 

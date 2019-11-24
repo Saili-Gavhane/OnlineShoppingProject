@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import com.lti.model.Category;
 import com.lti.model.Product;
+import com.lti.model.Retailer;
 @Repository("productRepository")
 public class ProductRepositoryImpl implements ProductRepository {
 	
@@ -38,8 +39,10 @@ public class ProductRepositoryImpl implements ProductRepository {
 
 	@Override
 	public List<Product> findAllProducts() {
-		// TODO Auto-generated method stub
-		return null;
+		String q = "Select p from Product p";
+		TypedQuery<Product> query = em.createQuery(q,Product.class);
+		List<Product> listProduct=query.getResultList();
+		return listProduct;
 	}
 	
 	@Transactional                                          

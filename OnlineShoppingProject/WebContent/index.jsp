@@ -337,12 +337,5 @@ body {
                 <tr><td>${Product.product_brand_id}</td></tr>
         </c:forEach>
     </table>
-    ${retailer.retailer_name} }
-
-
-
-
-
-
 </body>
 </html>
