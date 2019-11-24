@@ -24,6 +24,9 @@
      
     <input type="submit" value="Delete Product" />
 </form>
-
+<form  class="button"  action="/OnlineShoppingProject/viewProduct">
+     
+    <input type="submit" value="View Products" />
+</form>
 </body>
 </html>
