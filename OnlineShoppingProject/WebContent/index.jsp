@@ -13,7 +13,7 @@
 * {box-sizing: border-box;}
 
 * {box-sizing: border-box}
-..mySlides2 {display: none}
+.mySlides2 {display: none}
 img {vertical-align: middle;}
 
 
@@ -103,6 +103,7 @@ body {
 
 .button {
   background-color: #4CAF50;
+  font-size:15px;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -170,7 +171,8 @@ body {
         .slidercontainer {  
             max-width: 1000px;  
             position: relative;  
-            margin: auto;  
+            margin: auto; 
+
         }  
         .left, .right {  
             cursor: pointer;  
@@ -230,6 +232,7 @@ body {
         }  
 
 
+
 </style>
 </head>
 
@@ -238,13 +241,17 @@ body {
 
 
 <body>
+
+  <div><center><h1>ShopDrop</center></h1></div>
 <div>
-<span>
-<a><img src="/resources/images/Shoppinglogo2.png" alt="Smiley face" height="42" width="42"></a></span>
+
 <div class="topnav">
   
   <a href="#home">Home</a>
-  <a href="#home">Compare Products</a>
+  
+  <a href=>About Us</a>
+  <a href=>Help</a>
+  <a href="#home">Sign In</a>
   
   <div class="dropdown">
       <button class="dropbtn">Categories
@@ -262,6 +269,9 @@ body {
      		<button  style="background-color: #4CAF50" class="button" type="submit">Search</button>
      		</form>
     </div>
+    
+    </div>
+    
   
   </div>
 
@@ -270,15 +280,15 @@ body {
 </div>
 
 
-<!-- For video -->
+<!-- Video Start 
  <div><center>
 <video width="400" controls>
   <source src="resources/videos/12.mp4" type="video/mp4">
-  
-  
 </video>
 </center>
 </div>
+-->
+
 
 
 
@@ -286,16 +296,30 @@ body {
 
  <div class="slidercontainer">  
         <div class="showSlide fade">  
-            <img src="resources/images/11.jpg" />  
+            <img  src="1.jpg" />  
             
         </div>  
         <div class="showSlide fade">  
-            <img src="resources/images/13.jpg" />  
+            <img src="2.jpg" />  
             
         </div>  
   
         <div class="showSlide fade">  
-            <img src="resources/images/14.jpg" />  
+            <img  src="3.jpg" />  
+            
+        </div>  
+
+        <div class="showSlide fade">  
+            <img  src="5.jpg" />  
+            
+        </div>  
+        <div class="showSlide fade">  
+            <img src="6.jpg" />  
+            
+        </div>  
+  
+        <div class="showSlide fade">  
+            <img  src="7.jpg" />  
             
         </div>  
      

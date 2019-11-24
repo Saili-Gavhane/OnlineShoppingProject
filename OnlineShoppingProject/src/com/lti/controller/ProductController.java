@@ -56,7 +56,7 @@ public class ProductController {
 		incomingProduct.setProduct_base_price(base_price);
 		incomingProduct.setDescription(description);
 		
-		String path = "D:/ShopDrop_Images/";
+		String path = "D://ShopDrop_Images//";
 		String finalpath = path + m.getOriginalFilename();
 		
 		try {
@@ -66,7 +66,7 @@ public class ProductController {
 			e.printStackTrace();
 		}
 		
-		incomingProduct.setProduct_image(m.getOriginalFilename());
+		incomingProduct.setProduct_image(finalpath);
 		incomingProduct.setProduct_update_date(dtf.format(now)); 
 		incomingProduct.setApproval_status("approved");
 		incomingProduct.setBrand1(brand);
@@ -138,7 +138,7 @@ public class ProductController {
 		}
 		else
 		{
-			model = new  ModelAndView("viewProduct");
+			model = new  ModelAndView("/viewProduct");
 			model.addObject("listProduct", listProduct);
 		}
 		return model;
