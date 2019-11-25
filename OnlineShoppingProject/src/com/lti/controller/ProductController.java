@@ -181,7 +181,7 @@ public class ProductController {
 		}
 		else
 		{
-			model = new  ModelAndView("viewProductCart");
+			model = new  ModelAndView("viewProduct");
 			model.addObject("listProduct", listProduct);
 		}
 		return model;

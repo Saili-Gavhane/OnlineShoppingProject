@@ -113,13 +113,14 @@ font-size: 16px;
   <tr>
   <td colspan="2">Brand:Gutsy</td>
   </tr>
+ 
   
   <tr>
   <td class="price" colspan="2">Rs. ${Product.product_base_price}</td>
   </tr>
   
   <tr >
-  <td ><button>Add to Cart</button><br><br>
+  <td ><a href="/OnlineShoppingProject/addToCart?pid=${Product.product_id}&q=1"><button>Add to Cart</button></a><br><br>
   <a href="/OnlineShoppingProject/addToWishlist?id=${Product.product_id}"><button>Add to Wishlist</button></a><br><br>
   <button>Compare with Similiar Items</button></td>
   </tr>

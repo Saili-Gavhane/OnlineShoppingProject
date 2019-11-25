@@ -421,7 +421,7 @@ body {font-family: Arial;
 				<input id="search" type="text"
 					placeholder="Search.." name="Search">
 				<button type="submit">Search</button>
-				<a id="logout" class="cart-align" href="">Logout</a> 
+				<a id="logout" class="cart-align" href="/OnlineShoppingProject/logout">Logout</a> 
 				<a id="userEmail" class="cart-align" href="#" style="color: white"></a>
 			</div>
 		</ul>

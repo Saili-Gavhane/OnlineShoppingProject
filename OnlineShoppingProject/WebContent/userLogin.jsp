@@ -457,10 +457,10 @@ body {font-family: Arial;
     
 <table align="center">
 <tr>
-<td>Email Id</td><td ><input class="input" placeholder="Email Id" type="text" name="username" ></td>
+<td>Email Id</td><td ><input class="input" placeholder="Email Id" type="text" name="user_email" ></td>
 </tr>
 <tr>
-<td>Password</td><td ><input  class="input"  placeholder="Password" type="password" name="password"></td>
+<td>Password</td><td ><input  class="input"  placeholder="Password" type="password" name="user_password"></td>
 </tr>
 <tr>
 <td colspan="2" align="center"><input class="button" type="submit" value="Sign In"></td>

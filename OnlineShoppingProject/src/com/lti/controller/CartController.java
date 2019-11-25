@@ -11,10 +11,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.lti.model.Item;
 import com.lti.model.Product;
+import com.lti.model.User;
 import com.lti.service.ProductService;
 
 @Controller
@@ -23,10 +25,10 @@ public class CartController {
 	@Autowired
 	ProductService productService;
 	
-	@RequestMapping(value = "addToCart",method = RequestMethod.POST)
-	public ModelAndView buy(@RequestParam int pid,@RequestParam int q,HttpSession session)
+	@RequestMapping(value = "addToCart",method = RequestMethod.GET)
+	public ModelAndView addToCart(@RequestParam int pid,@RequestParam int q,HttpSession session,@SessionAttribute("User")  User u)
 	{
-		
+		System.out.println(u);
 		boolean isInCart=false;
 		Item foundInCart=null;
 		if(session.getAttribute("cart")==null)
@@ -69,9 +71,7 @@ public class CartController {
 			cart.add(new Item(productService.findById(pid), q));
 		}
 		
-		
-		
-		
+			
 		}
 		ModelAndView model=new ModelAndView("showCart");
 

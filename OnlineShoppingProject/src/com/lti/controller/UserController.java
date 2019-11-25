@@ -2,23 +2,31 @@ package com.lti.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.lti.model.Retailer;
 import com.lti.model.User;
 import com.lti.model.UserAddress;
 import com.lti.service.UserAddressService;
 import com.lti.service.UserService;
 
 @Controller
+@SessionAttributes("User")
 public class UserController {
 	@Autowired
 	UserService userService;
 	@Autowired
 	UserAddressService userAddressService;
+	
+	@ModelAttribute("User")
+	public User setUpUserForm()
+	{
+		return new User();
+	}
 	
 	@RequestMapping(value="/addUser",method=RequestMethod.POST)
 	public ModelAndView addRetailer(@RequestParam String firstname,@RequestParam String lastname,@RequestParam String email,@RequestParam String mobileno,@RequestParam String address1,@RequestParam String address2,@RequestParam String city,@RequestParam String state,@RequestParam int zipcode,@RequestParam String country,@RequestParam String password )
@@ -52,13 +60,15 @@ public class UserController {
 		return model;
 	}
 	@RequestMapping(value="/UserLogin",method=RequestMethod.POST)
-	public ModelAndView UserLogin (@RequestParam String username, @RequestParam String password)
+	public ModelAndView UserLogin (@ModelAttribute("User") User user )
 	{
+		System.out.println(user);
 		User incomingUser = new User();
-		incomingUser.setUser_email(username);
-		incomingUser.setUser_password(password);
+		incomingUser=userService.findByEmail(user.getUser_email());
+		user.setUser_id(incomingUser.getUser_id());
 		
 		User u = userService.login(incomingUser);
+		
 		ModelAndView model = null;
 		if(u==null)
 		{
@@ -89,5 +99,22 @@ public class UserController {
 		
 		return model;
 	}
+	/*@RequestMapping(value="/logout",method=RequestMethod.POST)
+	public ModelAndView UserLogout (HttpSession session)
+	{
+     	
+		ModelAndView model = null;
+		if(u==null)
+		{
+			model = new  ModelAndView("loginfailed");
+		}
+		else
+		{
+			model = new  ModelAndView("userLoginSuccess");
+			model.addObject("user",u);
+		}
+		
+		return model;
+	}*/
 
 }
