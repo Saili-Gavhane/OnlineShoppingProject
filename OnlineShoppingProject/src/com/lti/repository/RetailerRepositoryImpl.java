@@ -24,10 +24,16 @@ public class RetailerRepositoryImpl implements RetailerRepository {
 		return r;
 	}
 
-	@Override
+	@Transactional
 	public Retailer updateRetailer(Retailer r) {
-		// TODO Auto-generated method stub
-		return null;
+		String status = r.getApproval_status();
+		if(status.equals("Active"))
+			 r.setApproval_status("Deactive");
+			 else
+				 r.setApproval_status("Active");
+			 r = em.merge(r);	 
+			 em.persist(r);
+			 return r;
 	}
 
 	@Override

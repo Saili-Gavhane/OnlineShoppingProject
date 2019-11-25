@@ -22,8 +22,7 @@ public class RetailerServiceImpl implements RetailerService {
 
 	@Override
 	public Retailer updateRetailer(Retailer a) {
-		// TODO Auto-generated method stub
-		return null;
+		return retailerRepository.updateRetailer(a);
 	}
 
 	@Override
@@ -46,7 +45,7 @@ public class RetailerServiceImpl implements RetailerService {
 		{
 			
 		}
-		else if(uDB.getRetailer_email().equals(r.getRetailer_email())&&(uDB.getRetailer_password().equals(r.getRetailer_password())))
+		else if(uDB.getRetailer_email().equals(r.getRetailer_email())&&(uDB.getRetailer_password().equals(r.getRetailer_password()))&&(uDB.getApproval_status().equals("Active")))
 		{
 			userToBeReturned = uDB;
 		}

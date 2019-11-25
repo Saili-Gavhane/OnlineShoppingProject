@@ -73,16 +73,8 @@ public class AdminController {
 	@Transactional
 	public ModelAndView ActivateRetailer(@RequestParam int id,@RequestParam String status)
 	{
-		Retailer r=new Retailer();
-	
-	
-		 r=retailerService.findById(id);
-		 if(status.equals("Active"))
-		 r.setApproval_status("Active");
-		 else
-			 r.setApproval_status("Deactive");
-		 r = em.merge(r);	 
-		 em.persist(r);
+		Retailer r=retailerService.findById(id);
+		 r=retailerService.updateRetailer(r);
 		 List<Retailer> listRetailer=retailerService.findAllRetailers();
 			ModelAndView model = null;
 			if(listRetailer==null)

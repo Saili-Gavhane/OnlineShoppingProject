@@ -37,9 +37,6 @@ public class RetailerController {
 		bank.setBank_name(bank_name);
 		bank.setIfsc_code(code);
 		bank.setBank_branch(branch);
-		//BankDetails b = bankDetailsService.addBankDetails(bank);
-		//RetailerAddress address = new RetailerAddress();
-		
 		
 		retailer.setRetailer_name(name);
 		retailer.setRetailer_email(email);
@@ -48,21 +45,10 @@ public class RetailerController {
 		retailer.setAadhar_no(aadhar_no);
 		retailer.setPan_no(PAN_no);
 		retailer.setRetailer_password(password);
+		retailer.setApproval_status("Deactive");
 		retailer.setRemark("");
 		retailer.setBankdetails(bank);
 		Retailer r = retailerService.addRetailer(retailer);
-		
-		/*address.setAddressline_1(address1);
-		address.setAddressline_2(address2);
-		address.setCity(city);
-		address.setState(state);
-		address.setZipcode(zipcode);
-		address.setCountry(country);
-		address.setRetailer(r);
-		
-		RetailerAddress rd = retailerAddressService.addRetailerAddress(address);*/
-		
-		
 		
 		ModelAndView model = null;
 		if(r==null)

@@ -96,9 +96,11 @@ font-size: 16px;
   <table class ="card" style="width:100%" >
 
     <tr>
-      <td rowspan="6"><center><img src="${pageContext.request.contextPath}/resources/images/9.jpg" alt="Smiley face" height="300" width="200"></center></td>
+      <td colspan="2"><center><img src="${pageContext.request.contextPath}/resources/images/9.jpg" alt="Smiley face" height="300" width="200"></center></td>
+      </tr>
+      <tr>
       <td colspan="2"><h2>${Product.product_name}</h2></td>
-      <b><%= request.getContextPath()%></b>
+     
       
     </tr>
   <tr >
@@ -112,7 +114,7 @@ font-size: 16px;
   </tr>
   
   <tr>
-  <td class="price" colspan="2">₹ ${Product.product_base_price}</td>
+  <td class="price" colspan="2">Rs. ${Product.product_base_price}</td>
   </tr>
   
   <tr >

@@ -1,12 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
-<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
+        <link rel="stylesheet" type="text/css" href="css/stylelogin.css">
 <style>
+
 body {font-family: Arial;
     position:center;}
     	
@@ -397,71 +396,148 @@ body {font-family: Arial;
 	#retailer-display{
 	display:inline;
 	}
-</style>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+ body {
+ font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;}  
 
-<link rel="stylesheet" type="text/css" href="css/stylelogin.css">
-<title>home</title>
-<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-<script type="text/javascript" src="js/sessionManagement.js"></script>
+           
+ .input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 5px;
+}  
+
+
+.button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+
+  
+}
+.button:hover {
+  opacity: 0.8;
+ 
+}
+
+.container {
+  padding: 16px;
+  background-color: white;
+}</style>
+<meta charset="ISO-8859-1">
+<title>User Sign Up Page</title>
 </head>
 <body>
-	<div>
-		<ul>
-			<li><div class="logo">
-					<img class="logo-size" src="resources/images/logo.jpg"><a href="home.html">ShopDrop</a>
-				</div></li>
-			<li><a class="cart-align" href="/OnlineShoppingProject/viewProduct">Products</a></li>
-			<li><a class="cart-align" href="order.html">Order</a></li>
-			<li><a class="cart-align" href="cart.html">Cart</a></li>
-			<li><a class="cart-align" href="userprofile.html">User
-					Profile</a></li>
-			<div>
-				<input id="search" type="text"
-					placeholder="Search.." name="Search">
-				<button type="submit">Search</button>
-				<a id="login" class="cart-align" href="userLogin.jsp">Sign In</a> <a
-					id="register" class="cart-align" href="userRegistration.jsp">Sign Up</a>
-				<a id="logout" class="cart-align" href="">Logout</a> <a
-					id="userEmail" class="cart-align" href="#" style="color: white"></a>
-			</div>
-		</ul>
+        <div>
+                <ul>
+                    <li><div class="logo">
+                            <img class="logo-size" src="resources/images/logo.jpg">ShopDrop
+                        </div></li>
+            </div>
+        </ul>
 	</div>
-<div>
-     <img class="mySlides" id="img-height" src="resources/images/4.jng">
-    <img class="mySlides" id="img-height" src="resources/images/5.jpg">
-    <img class="mySlides" id="img-height" src="resources/images/6.jpg">
-    <img class="mySlides" id="img-height" src="resources/images/7.jpg">
-    <img class="mySlides" id="img-height" src="resources/images/8.jpg">
-   
-  </div>
-  
-<div class="row">
-  
-  <div class="column">
-    <img src="resources/images/mobile-img.jpg" alt="mobile" style="width:100%">
-  </div>
-  <div class="column">
-    <img src="resources/images/prod-laptop.jpg" alt="Mountains" style="width:100%">
-  </div>
-</div>
-  
-  <script>
-  var myIndex = 0;
-  carousel();
-  
-  function carousel() {
-    var i;
-    var x = document.getElementsByClassName("mySlides");
-    for (i = 0; i < x.length; i++) {
-      x[i].style.display = "none";  
-    }
-    myIndex++;
-    if (myIndex > x.length) {myIndex = 1}    
-    x[myIndex-1].style.display = "block";  
-    setTimeout(carousel, 2000); 
-  }
-  </script>
+	<div class="header">Join the ShopDrop Community</center></div>
+<form action="" method="Post" autocomplete="off">
+
+<table align="center" border="0px" >
+<tr>
+<td>First Name</td>
+<td><input class="input" type="text" name="first_name"></td>
+<td>Last Name</td>
+<td><input class="input" type="text" name="last_name"></td>
+</tr>
+<tr>
+<td>Email Id</td><td><input class="input" type="text" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"></td>
+
+
+
+<td>Contact Number</td><td><input class="input" type="text" name="mobile_no" pattern="[7-9]{1}[0-9]{9}" maxlength="10"></td>
+</tr>
+<tr>
+<td>Address Line 1</td><td><input class="input" type="text" name="address1"></td>
+
+<td>Address Line 2</td><td><input class="input" type="text" name="address2"></td>
+</tr>
+<tr>
+<td>City</td><td><input class="input" type="text" name="city"></td>
+
+<td>State</td><td><select  class="input" name="state">
+
+<option value="Andhra Pradesh">Andhra Pradesh</option>
+<option value="Arunachal Pradesh">Arunachal Pradesh</option>
+<option value="Assam">Assam</option>
+<option value="Bihar">Bihar</option>
+<option value="Chandigarh">Chandigarh</option>
+<option value="Chhattisgarh">Chhattisgarh</option>
+<option value="Dadra and Nagar Haveli">Dadra and Nagar Haveli</option>
+<option value="Daman and Diu">Daman and Diu</option>
+<option value="Delhi">Delhi</option>
+<option value="Goa">Goa</option>
+<option value="Gujarat">Gujarat</option>
+<option value="Haryana">Haryana</option>
+<option value="Himachal Pradesh">Himachal Pradesh</option>
+<option value="Jammu and Kashmir">Jammu and Kashmir</option>
+<option value="Jharkhand">Jharkhand</option>
+<option value="Karnataka">Karnataka</option>
+<option value="Kerala">Kerala</option>
+<option value="Lakshadweep">Lakshadweep</option>
+<option value="Madhya Pradesh">Madhya Pradesh</option>
+<option value="Maharashtra">Maharashtra</option>
+<option value="Manipur">Manipur</option>
+<option value="Meghalaya">Meghalaya</option>
+<option value="Mizoram">Mizoram</option>
+<option value="Nagaland">Nagaland</option>
+<option value="Orissa">Orissa</option>
+<option value="Pondicherry">Pondicherry</option>
+<option value="Punjab">Punjab</option>
+<option value="Rajasthan">Rajasthan</option>
+<option value="Sikkim">Sikkim</option>
+<option value="Tamil Nadu">Tamil Nadu</option>
+<option value="Tripura">Tripura</option>
+<option value="Uttaranchal">Uttaranchal</option>
+<option value="Uttar Pradesh">Uttar Pradesh</option>
+<option value="West Bengal">West Bengal</option>
+</select>
+</td>
+</tr>
+<tr>
+<td>Zip Code</td><td><input class="input" type="text" name="zipcode" pattern="[0-9]{6}" maxlength="6"></td>
+
+<td>Country</td><td><select class="input" name="country">
+<option value="India">India</option>
+</select>
+</td>
+</tr>
+<tr>
+<td>Password</td><td><input class="input" type="password" name="password"></td>
+
+<td>Confirm Password</td><td><input  class="input" type="password" name="confirm_password"></td>
+<tr>
+
+<tr>
+
+<td  colspan="4"><center><br>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</center></td>
+
+<tr>
+    
+<tr>
+
+<td colspan="4" align="center"><center><input class="button" type="submit" value="Sign Up" ></center></td>
+
+</tr>
+
+<tr><td colspan="4" align="center"><p class="container">Already have an account? <a href="#">Sign In</a>.</p></td></tr>
+</table>
+ 
+</form>
 </body>
 </html>

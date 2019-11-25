@@ -14,10 +14,10 @@
 
  <script type="text/javascript">
         var subcategory = {
-            Womens_Fashion: ["Panash","Manyawar Mohey"],
-            Electronics: ["Samsung","Motorola","Nokia"],
-            Mens_Fashion: ["Adiddas","Fastrack",],
-            Home_Decoration: ["Borosil","Cello","RiddhieR","Homebuddy","KitchenPro","Butterfly","Prestige","Kitchoff","Solimo","Hawkins","Russell","Bajaj","Lifelong","Signora","SheetKart","Bharat","Cortina"],
+        		 Womens_Fashion: ["Panash","Manyawar Mohey","Cilory","Musturd","GAP","Fast Fashions","Funday Fashions","SHIEN","GoSriKi","Arayan","Zivame","Janasya","Yeapoho","ALC Creation","Vaamsi","Varkal Silk","Anni Designer","Parevcee","Sainex","Beauty Queen","Alert India","NS Style","Fine Fasion","ABS Fashion","Krafter","Trase","Kanchan","Lakme","Olay","Lotus","Maybelline","Petrice","Innorra","Miss Rose","House of Quick","Pal","Mammon","Lacira","Flying Berg","JFC","Vintage","Bizanne","Damdawn","Fostels","Astil","BFC","Blue Diamond","Talat Fashion","Brisfine","Miraggio","Coprese"],
+                 Electronics: ["Samsung","Motorola","Nokia","MI","Philips","Nova","Raelme","Vivo","Acer","Dell","Aces","Acer","Lenovo","Nht","vu","Iffalcon","Thomson",],
+                 Mens_Fashion: ["Adiddas","Fastrack","Charls Dins","Arihant","Peter England","Diverse","Raza","Krytar","U-Turn","VAN HUsun","Chkokko","United Colours of Bennetton","Scott","Deniklo","Seven Rocks","Eye Bogler","Bourge","Red Chef","Symbol","Krafto","Flite","Bahamas","Sparx","BigFox","RoadBull","Ethics","Crocs","BerSache","Allen Cooper","Zenwear","Asian","Centrio","Simsco","Hippon","Dervin","Campeon","Synbus","Silver Kartz","Fastrack","RD","SOJOS","Carlson Raulen","Vast","Sports","Sheomy","RamMaz","ETRG","Intellilens","Gannet","Lorenz","Friends & Company","Blissburry","Orkee","Rasso","AM Leather","Capriff","Styler King","Rosset","Koochi","Generic","Dialy Objects","WildHorn","Biege","Helizest","Urban Forest","Faawn","StyleFlix","The Watch Hub","Espoir","Daizel","Vills Laurrens","Swisstone","Fitbit Surge","GOqii","Timex","Lawman","Romex","Nibosi","Quartz","Makecell","Honor Band"], 
+                 Home_Decoration: ["Borosil","Cello","RiddhieR","Homebuddy","KitchenPro","Butterfly","Prestige","Kitchoff","Solimo","Hawkins","Russell","Bajaj","Lifelong","Signora","SheetKart","Bharat","Cortina"],                      
         }
 
         function makeSubmenu(value) {

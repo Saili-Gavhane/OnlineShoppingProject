@@ -60,8 +60,8 @@ public class ProductController {
 		incomingProduct.setProduct_base_price(base_price);
 		incomingProduct.setDescription(description);
 		
-		String path = servletContext.getRealPath("")+"/resources/images/";
-		System.out.println(path);
+		String path ="D:/ShopDrop_Images/";
+		
 		String finalpath = path + m.getOriginalFilename();
 		
 		try {
@@ -73,7 +73,7 @@ public class ProductController {
 		
 		incomingProduct.setProduct_image(finalpath);
 		incomingProduct.setProduct_update_date(dtf.format(now)); 
-		incomingProduct.setApproval_status("approved");
+		incomingProduct.setApproval_status("Unapproved");
 		incomingProduct.setBrand1(brand);
 		incomingProduct.setCategory(category1);
 		incomingProduct.setRetailer(r1);
@@ -143,7 +143,7 @@ public class ProductController {
 		}
 		else
 		{
-			model = new  ModelAndView("/viewProduct");
+			model = new  ModelAndView("viewProduct");
 			model.addObject("listProduct", listProduct);
 		}
 		return model;
