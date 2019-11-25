@@ -15,18 +15,12 @@ import com.lti.service.UserAddressService;
 import com.lti.service.UserService;
 
 @Controller
-@SessionAttributes("User")
 public class UserController {
 	@Autowired
 	UserService userService;
 	@Autowired
 	UserAddressService userAddressService;
 	
-	@ModelAttribute("User")
-	public User setUpUserForm()
-	{
-		return new User();
-	}
 	
 	@RequestMapping(value="/addUser",method=RequestMethod.POST)
 	public ModelAndView addRetailer(@RequestParam String firstname,@RequestParam String lastname,@RequestParam String email,@RequestParam String mobileno,@RequestParam String address1,@RequestParam String address2,@RequestParam String city,@RequestParam String state,@RequestParam int zipcode,@RequestParam String country,@RequestParam String password )
@@ -60,24 +54,23 @@ public class UserController {
 		return model;
 	}
 	@RequestMapping(value="/UserLogin",method=RequestMethod.POST)
-	public ModelAndView UserLogin (@ModelAttribute("User") User user )
+	public ModelAndView UserLogin (@RequestParam String user_email,@RequestParam String user_password)
 	{
-		System.out.println(user);
 		User incomingUser = new User();
-		incomingUser=userService.findByEmail(user.getUser_email());
-		user.setUser_id(incomingUser.getUser_id());
+		incomingUser=userService.findByEmail(user_email);
 		
-		User u = userService.login(incomingUser);
+		
+		incomingUser = userService.login(incomingUser);
 		
 		ModelAndView model = null;
-		if(u==null)
+		if(incomingUser==null)
 		{
 			model = new  ModelAndView("loginfailed");
 		}
 		else
 		{
 			model = new  ModelAndView("userLoginSuccess");
-			model.addObject("user",u);
+			model.addObject("user",incomingUser);
 		}
 		
 		return model;

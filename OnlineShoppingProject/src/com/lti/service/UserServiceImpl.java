@@ -57,6 +57,7 @@ public class UserServiceImpl implements UserService {
 		{
 			
 		}
+		userToBeReturned.setUser_id(uDB.getUser_id());
 		return userToBeReturned;
 	}
 
