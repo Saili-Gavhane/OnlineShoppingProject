@@ -83,9 +83,17 @@ public class AdminController {
 			 r.setApproval_status("Deactive");
 		 r = em.merge(r);	 
 		 em.persist(r);
-		 
-		ModelAndView model = null;
-		model = new  ModelAndView("");
-		return model;
+		 List<Retailer> listRetailer=retailerService.findAllRetailers();
+			ModelAndView model = null;
+			if(listRetailer==null)
+			{
+				model = new  ModelAndView("loginfailed");
+			}
+			else
+			{
+				model = new  ModelAndView("viewRetailers");
+				model.addObject("listRetailer", listRetailer);
+			}
+			return model;
 	}
 }

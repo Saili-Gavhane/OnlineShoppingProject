@@ -3,9 +3,47 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="css/text.css"  type="text/css">
+
 <meta charset="ISO-8859-1">
 <title>Retailer Sign Up Page</title>
+<style>
+ body {
+ font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;}  
+
+           
+ .input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 5px;
+}  
+
+
+.button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+
+  
+}
+.button:hover {
+  opacity: 0.8;
+ 
+}
+
+.container {
+  padding: 16px;
+  background-color: white;
+}
+</style>
 </head>
 <body>
 <form action="/OnlineShoppingProject/addRetailer" method="Post" autocomplete="on">
@@ -52,15 +90,16 @@
 <td>IFSC Code</td><td><input type="text" class="input" name="code"></td>
 <tr>
 <td >Branch</td><td><input type="text" class="input" name="branch"></td>
-</tr>
+<!-- </tr>
 
 <td  colspan="4"><center><br>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</center></td>
 
 <tr>
+ -->
     
 <tr>
 
-<td colspan="4" align="center"><center><input class="button" type="submit" value="Sign Up" ></center></td>
+<td colspan="4" align="center"><center><input class="button" type="submit" value="Proceed" ></center></td>
 
 </tr>
 
