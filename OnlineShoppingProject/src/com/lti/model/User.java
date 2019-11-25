@@ -23,7 +23,7 @@ public class User {
 	String user_email;
 	String user_password;
 	String mobileno;
-	@OneToMany(mappedBy="user",fetch=FetchType.LAZY)
+	@OneToMany(mappedBy="user",fetch=FetchType.EAGER)
     private Set<UserAddress> useraddress;
 	public User() {
 		super();

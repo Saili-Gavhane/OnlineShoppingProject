@@ -42,5 +42,17 @@ public class ProductServiceImpl implements ProductService{
 	{
 		return productRepository.findByName(name);
 	}
+
+	@Override
+	public List<Product> findAllProductsByDescending() {
+		// TODO Auto-generated method stub
+		return productRepository.findAllProductsByDescending();
+	}
+
+	@Override
+	public List<Product> findAllProductsByAscending() {
+		// TODO Auto-generated method stub
+		return productRepository.findAllProductsByAscending();
+	}
 	
 }

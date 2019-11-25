@@ -450,14 +450,14 @@ body {font-family: Arial;
 </ul>
 </div>
 
-<form action="" method="Post" autocomplete="off">
+<form action="/OnlineShoppingProject/UserLogin" method="Post" autocomplete="off">
 <center><h2>Sign In</h2></center>
 
     
     
 <table align="center">
 <tr>
-<td>Email Id</td><td ><input class="input" placeholder="Email Id" type="text" name="email" ></td>
+<td>Email Id</td><td ><input class="input" placeholder="Email Id" type="text" name="username" ></td>
 </tr>
 <tr>
 <td>Password</td><td ><input  class="input"  placeholder="Password" type="password" name="password"></td>

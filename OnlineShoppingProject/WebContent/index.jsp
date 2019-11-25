@@ -402,7 +402,7 @@ body {font-family: Arial;
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link rel="stylesheet" type="text/css" href="css/stylelogin.css">
-<title>home</title>
+<title>ShopDrop</title>
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <script type="text/javascript" src="js/sessionManagement.js"></script>
 </head>
@@ -412,7 +412,7 @@ body {font-family: Arial;
 			<li><div class="logo">
 					<img class="logo-size" src="resources/images/logo.jpg"><a href="home.html">ShopDrop</a>
 				</div></li>
-			<li><a class="cart-align" href="/OnlineShoppingProject/viewProduct">Products</a></li>
+			<li><a class="cart-align" href="/OnlineShoppingProject/basicProduct">Products</a></li>
 			<li><a class="cart-align" href="order.html">Order</a></li>
 			<li><a class="cart-align" href="cart.html">Cart</a></li>
 			<li><a class="cart-align" href="userprofile.html">User
@@ -423,8 +423,7 @@ body {font-family: Arial;
 				<button type="submit">Search</button>
 				<a id="login" class="cart-align" href="userLogin.jsp">Sign In</a> <a
 					id="register" class="cart-align" href="userRegistration.jsp">Sign Up</a>
-				<a id="logout" class="cart-align" href="">Logout</a> <a
-					id="userEmail" class="cart-align" href="#" style="color: white"></a>
+				<a id="userEmail" class="cart-align" href="#" style="color: white"></a>
 			</div>
 		</ul>
 	</div>

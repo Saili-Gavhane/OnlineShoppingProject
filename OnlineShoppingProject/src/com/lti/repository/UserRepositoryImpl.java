@@ -4,10 +4,12 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
 
+import com.lti.model.Retailer;
 import com.lti.model.User;
 
 @Repository("userRepository")
@@ -30,14 +32,18 @@ public class UserRepositoryImpl implements UserRepository {
 
 	@Override
 	public User findById(int id) {
-		// TODO Auto-geneuted method stub
-		return null;
+		User u = em.find(User.class, id);
+		return u;
 	}
 
-	@Override
+	@Transactional 
 	public User findByEmail(String email) {
-		// TODO Auto-geneuted method stub
-		return null;
+			String q="Select u from User u where u.user_email =?1";
+			TypedQuery<User> query = em.createQuery(q,User.class);
+			query.setParameter(1,email);
+		
+			User u= query.getSingleResult();
+			return u;		
 	}
 
 	@Override

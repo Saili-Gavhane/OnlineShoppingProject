@@ -55,5 +55,20 @@ public class ProductRepositoryImpl implements ProductRepository {
 		Product c= query.getSingleResult();
 		return c;		
 	}
+	@Override
+	public List<Product> findAllProductsByAscending() {
+		String q = "Select p from Product p ORDER BY p.product_base_price ASC";
+		TypedQuery<Product> query = em.createQuery(q,Product.class);
+		List<Product> listProduct=query.getResultList();
+		return listProduct;
+	}
+
+	@Override
+	public List<Product> findAllProductsByDescending() {
+		String q = "Select p from Product p ORDER BY p.product_base_price DESC";
+		TypedQuery<Product> query = em.createQuery(q,Product.class);
+		List<Product> listProduct=query.getResultList();
+		return listProduct;
+	}
 
 }

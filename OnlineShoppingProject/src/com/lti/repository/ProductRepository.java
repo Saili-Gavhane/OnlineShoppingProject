@@ -11,5 +11,7 @@ public interface ProductRepository {
 	//public Product findByEmail(String email);
 	public List<Product> findAllProducts();
 	public Product findByName(String name);
+	public List<Product> findAllProductsByAscending();
+	public List<Product> findAllProductsByDescending();
 
 }

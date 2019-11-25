@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.lti.model.Retailer;
 import com.lti.model.User;
 import com.lti.repository.UserRepository;
 
@@ -26,8 +27,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User findById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return userRepository.findById(id);
 	}
 
 	@Override
@@ -40,6 +40,24 @@ public class UserServiceImpl implements UserService {
 	public List<User> findAllUsers() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	public User login(User u) {
+		User userToBeReturned=null;
+		User uDB= userRepository.findByEmail(u.getUser_email());
+		
+		if(uDB==null)
+		{
+			
+		}
+		else if(uDB.getUser_email().equals(u.getUser_email()))
+		{
+			userToBeReturned = uDB;
+		}
+		else
+		{
+			
+		}
+		return userToBeReturned;
 	}
 
 }

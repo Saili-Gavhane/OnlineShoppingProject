@@ -8,6 +8,7 @@
  <link href="<c:url value="/resources/css/navbar.css" />" rel="stylesheet"  type="text/css" /> 
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
+
 table, th, td {
   <!--border: 1px black solid;-->
   border-collapse: collapse;
@@ -66,6 +67,8 @@ font-size: 16px;
 </style>
 </head>
 <body>
+
+<!-- 
   <div>
 
 <div class="topnav">
@@ -91,6 +94,9 @@ font-size: 16px;
     </div>
   
   </div>
+  
+  
+   -->
 
  <c:forEach items="${listProduct}" var="Product">
  <center>
@@ -109,10 +115,7 @@ font-size: 16px;
   <pre>${Product.description}
   </pre></td>
   </tr>
-  
-  <tr>
-  <td colspan="2">Brand:Gutsy</td>
-  </tr>
+ 
   
   <tr>
   <td class="price" colspan="2">Rs. ${Product.product_base_price}</td>
@@ -120,7 +123,7 @@ font-size: 16px;
   
   <tr >
   <td ><button>Add to Cart</button><br><br>
-  <a href="/OnlineShoppingProject/addToWishlist?id=${Product.product_id}"><button>Add to Wishlist</button></a><br><br>
+  <a href=""><button>Add to Wishlist</button></a><br><br>
   <button>Compare with Similiar Items</button></td>
   </tr>
   </table>

@@ -22,15 +22,19 @@ import com.lti.model.Category;
 import com.lti.model.Product;
 import com.lti.model.Retailer;
 import com.lti.model.Stock;
+import com.lti.model.User;
 import com.lti.service.BrandService;
 import com.lti.service.CategoryService;
 import com.lti.service.ProductService;
 import com.lti.service.RetailerService;
 import com.lti.service.StockService;
+import com.lti.service.UserService;
 @Controller
 public class ProductController {
 	@Autowired
 	ProductService productService;
+	@Autowired
+	UserService userService;
 	@Autowired
 	BrandService brandService;
 	@Autowired
@@ -86,7 +90,7 @@ public class ProductController {
 		
 		
 		ModelAndView model = null;
-		if(p==null)
+		if(p==null&&s==null)
 		{
 			model = new  ModelAndView("addfailed");
 		}
@@ -133,6 +137,23 @@ public class ProductController {
 		return model;
 	}
 	@RequestMapping(value="/viewProduct",method=RequestMethod.GET)
+	public ModelAndView findAllProducts(@RequestParam int id)
+	{
+		User u = userService.findById(id);
+		List<Product> listProduct = productService.findAllProducts();
+		ModelAndView model = null;
+		if(listProduct==null)
+		{
+			model = new  ModelAndView("loginfailed");
+		}
+		else
+		{
+			model = new  ModelAndView("viewProduct");
+			model.addObject("listProduct", listProduct);
+		}
+		return model;
+	}
+	@RequestMapping(value="/basicProduct",method=RequestMethod.GET)
 	public ModelAndView findAllProducts()
 	{
 		List<Product> listProduct = productService.findAllProducts();
@@ -143,7 +164,24 @@ public class ProductController {
 		}
 		else
 		{
-			model = new  ModelAndView("viewProduct");
+			model = new  ModelAndView("basicProducts");
+			model.addObject("listProduct", listProduct);
+		}
+		return model;
+	}
+	@RequestMapping(value="/viewProductCart",method=RequestMethod.GET)
+	public ModelAndView findAllProducts1()
+	{
+		
+		List<Product> listProduct = productService.findAllProductsByDescending();
+		ModelAndView model = null;
+		if(listProduct==null)
+		{
+			model = new  ModelAndView("loginfailed");
+		}
+		else
+		{
+			model = new  ModelAndView("viewProductCart");
 			model.addObject("listProduct", listProduct);
 		}
 		return model;

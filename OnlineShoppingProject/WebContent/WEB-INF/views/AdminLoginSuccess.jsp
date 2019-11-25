@@ -56,7 +56,6 @@ font-family: arial;
         </tr>
         <c:forEach items="${listRetailer}" var="Retailer">
         <tr>
-
             <td>${Retailer.retailer_id}</td>
             <td>${Retailer.retailer_name}</td>
             <td>${Retailer.retailer_email}</td>
