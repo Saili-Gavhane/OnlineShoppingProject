@@ -55,7 +55,7 @@ public class OrderController {
 	    order.setOrder_amount(total);
 	    order.setOrder_status("Not delivered");
 	    order.setRemark("");
-	    order.setOrder_delivery_date("");
+	    order.setOrder_delivery_date(dtf.format(now)+5);
 	    order = ordersService.addOrders(order);
 	    	
 		Iterator<Item> iterator=cart.iterator();
