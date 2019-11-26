@@ -26,9 +26,9 @@ public class CartController {
 	ProductService productService;
 	
 	@RequestMapping(value = "addToCart",method = RequestMethod.GET)
-	public ModelAndView addToCart(@RequestParam int pid,@RequestParam int q,HttpSession session,@SessionAttribute("User")  User u)
+	public ModelAndView addToCart(@RequestParam int pid,@RequestParam int q,HttpSession session)
 	{
-		System.out.println(u);
+	//	System.out.println(u);
 		boolean isInCart=false;
 		Item foundInCart=null;
 		if(session.getAttribute("cart")==null)

@@ -17,12 +17,11 @@ public class Orders {
 	@SequenceGenerator(sequenceName = "orders_seq", name = "orders_seq", allocationSize = 1)
 	int order_id;
 	String order_ship_name;
-	int order_ship_address_id;
 	String order_date;
 	float delivery_charges;
 	int order_tracking_no;
 	String order_status;
-	float order_amount;
+	String order_amount;
 	String order_delivery_date;
 	String remark;
 	@OneToOne(cascade = CascadeType.PERSIST)
@@ -38,13 +37,13 @@ public class Orders {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Orders(int order_id, String order_ship_name, int order_ship_address_id, String order_date,
-			float delivery_charges, int order_tracking_no, String order_status, float order_amount,
+	public Orders(int order_id, String order_ship_name, String order_date,
+			float delivery_charges, int order_tracking_no, String order_status, String order_amount,
 			String order_delivery_date, String remark, User user2, UserAddress useraddress) {
 		super();
 		this.order_id = order_id;
 		this.order_ship_name = order_ship_name;
-		this.order_ship_address_id = order_ship_address_id;
+		
 		this.order_date = order_date;
 		this.delivery_charges = delivery_charges;
 		this.order_tracking_no = order_tracking_no;
@@ -70,14 +69,6 @@ public class Orders {
 
 	public void setOrder_ship_name(String order_ship_name) {
 		this.order_ship_name = order_ship_name;
-	}
-
-	public int getOrder_ship_address_id() {
-		return order_ship_address_id;
-	}
-
-	public void setOrder_ship_address_id(int order_ship_address_id) {
-		this.order_ship_address_id = order_ship_address_id;
 	}
 
 	public String getOrder_date() {
@@ -112,11 +103,11 @@ public class Orders {
 		this.order_status = order_status;
 	}
 
-	public float getOrder_amount() {
+	public String getOrder_amount() {
 		return order_amount;
 	}
 
-	public void setOrder_amount(float order_amount) {
+	public void setOrder_amount(String order_amount) {
 		this.order_amount = order_amount;
 	}
 

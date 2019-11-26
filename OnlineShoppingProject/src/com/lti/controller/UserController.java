@@ -18,18 +18,12 @@ import com.lti.service.UserAddressService;
 import com.lti.service.UserService;
 
 @Controller
-@SessionAttributes("User")
+
 public class UserController {
 	@Autowired
 	UserService userService;
 	@Autowired
 	UserAddressService userAddressService;
-	
-	@ModelAttribute("User")
-	public User setUpUserForm()
-	{
-		return new User();
-	}
 	
 	@RequestMapping(value="/addUser",method=RequestMethod.POST)
 	public ModelAndView addRetailer(@RequestParam String firstname,@RequestParam String lastname,@RequestParam String email,@RequestParam String mobileno,@RequestParam String address1,@RequestParam String address2,@RequestParam String city,@RequestParam String state,@RequestParam int zipcode,@RequestParam String country,@RequestParam String password )
@@ -63,14 +57,15 @@ public class UserController {
 		return model;
 	}
 	@RequestMapping(value="/UserLogin",method=RequestMethod.POST)
-	public ModelAndView UserLogin (@RequestParam String username, @RequestParam String password,HttpSession request)
+	public ModelAndView UserLogin (@RequestParam String username, @RequestParam String password,HttpSession session)
 	{
+		
 		User incomingUser = new User();
 		incomingUser.setUser_email(username);
 		incomingUser.setUser_password(password);
 		
 		User a = userService.login(incomingUser);
-		request.setAttribute("user", a);
+		session.setAttribute("user", a);
 		
 
 		ModelAndView model = null;
@@ -120,5 +115,18 @@ public class UserController {
 		
 		return model;
 	}*/
+	
+	@RequestMapping(value="/logout",method=RequestMethod.GET)
+	public ModelAndView logout (HttpSession session)
+	
+	{
+		session.invalidate();
+		ModelAndView model = null;
+	
+			model = new  ModelAndView("home");
+	
+		
+		return model;
+	}
 
 }

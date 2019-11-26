@@ -42,17 +42,18 @@ public class OrderController {
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
 		LocalDateTime now = LocalDateTime.now();
 		User u = (User)session.getAttribute("user");
+		System.out.println("Fetched from session:"+u.getUser_id());
 		UserAddress u1 = userAddressService.findByUser(u);
 	    Orders order = new Orders();
 	    order.setUser2(u);
-	    order.setOrder_ship_address_id(u1.getAddress_id());
+	    order.setUseraddress(u1);
 	    order.setOrder_ship_name(u.getFirst_name()+u.getLast_name());
 	    order.setOrder_date(dtf.format(now));
 	    order.setDelivery_charges(53.00f);
-	    int total1 = Integer.parseInt(total);
-	    float total2 = (float) total1;
-	    order.setOrder_amount(total2);
-	    order.setOrder_status("");
+	    //int total1 = Integer.parseInt(total);
+	  
+	    order.setOrder_amount(total);
+	    order.setOrder_status("Not delivered");
 	    order.setRemark("");
 	    order.setOrder_delivery_date("");
 	    order = ordersService.addOrders(order);
@@ -72,11 +73,10 @@ public class OrderController {
 		}
 		
 		ModelAndView model = null;
-		if(order==null)
-		{
+		
+		
 			model= new ModelAndView("addsuccess");
-		}
-		return model;
+	      return model;
 	}
 	
 

@@ -25,7 +25,8 @@ public class UserAddressRepositoryImpl implements UserAddressRepository {
 		return ua;
 	}
 	public UserAddress findByUser(User u) {
-		String q="Select u from UserAddress u where u.user_id =?1";
+		System.out.println(u.getUser_id()+"-->"+u.getFirst_name());
+		String q="Select ua from UserAddress ua where ua.user= (Select u from User u where u.user_id=?1)";
 		TypedQuery<UserAddress> query = em.createQuery(q,UserAddress.class);
 		query.setParameter(1,u.getUser_id());
 	
