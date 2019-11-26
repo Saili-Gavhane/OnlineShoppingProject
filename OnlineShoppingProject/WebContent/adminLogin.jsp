@@ -18,13 +18,12 @@
 <td>Email Id</td><td><input class="input" type="text" name="username" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"></td>
 </tr>
 <tr>
-<td>Password</td><td><input class="input" type="password" name="password"></td>
+<td>Password</td><td><input class="input" type="password" name="password" required></td>
 </tr>
 <tr>
 <td colspan ="2" align="center"><input type="submit" class="button"  value="Sign In"></td>
 </tr>
-<tr>
-<td colspan="2" align="center"><a href="">Forgot Password?</a></td></</tr>
+
 </table>
 </form>
 </body>

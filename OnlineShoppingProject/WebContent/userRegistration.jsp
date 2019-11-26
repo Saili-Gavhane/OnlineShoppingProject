@@ -433,6 +433,38 @@ body {font-family: Arial;
   padding: 16px;
   background-color: white;
 }</style>
+
+<script> 
+          
+            // Function to check Whether both passwords 
+            // is same or not. 
+            function checkPassword(form) { 
+                password = form.password.value; 
+                confirmpassword = form.confirmpassword .value; 
+  
+                // If password not entered 
+                if (password == '') 
+                    alert ("Please enter Password"); 
+                      
+                // If confirm password not entered 
+                else if (password == '') 
+                    alert ("Please enter confirm password"); 
+                      
+                // If Not same return False.     
+                else if (password != confirmpassword) { 
+                    alert ("\nPassword did not match: Please try again...") 
+                    return false; 
+                } 
+                /*
+                // If same return True. 
+                else{ 
+                    alert(Registered ") 
+                    return true; 
+                } 
+                */
+    
+            } 
+        </script> 
 <meta charset="ISO-8859-1">
 <title>User Sign Up Page</title>
 </head>
@@ -440,13 +472,13 @@ body {font-family: Arial;
         <div>
                 <ul>
                     <li><div class="logo">
-                            <img class="logo-size" src="resources/images/logo.jpg">ShopDrop
+                           <img class="logo-size" src="resources/images/logo.jpg"><a href="index.jsp">ShopDrop</a>
                         </div></li>
             </div>
         </ul>
 	</div>
-	<div class="header">Join the ShopDrop Community</center></div>
-<form action="/OnlineShoppingProject/addUser" method="Post">
+	
+<form action="/OnlineShoppingProject/addUser" method="Post" onSubmit = "return checkPassword(this)" autocomplete="off">
 
 <table align="center" border="0px" >
 <tr>
@@ -523,11 +555,7 @@ body {font-family: Arial;
 <td>Confirm Password</td><td><input  class="input" type="password" name="confirmpassword"></td>
 <tr>
 
-<tr>
 
-<td  colspan="4"><center><br>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</center></td>
-
-<tr>
     
 <tr>
 
@@ -535,7 +563,7 @@ body {font-family: Arial;
 
 </tr>
 
-<tr><td colspan="4" align="center"><p class="container">Already have an account? <a href="#">Sign In</a>.</p></td></tr>
+<tr><td colspan="4" align="center"><p class="container">Already have an account? <a href="userLogin.jsp">Sign In</a>.</p></td></tr>
 </table>
  
 </form>

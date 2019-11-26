@@ -3,9 +3,11 @@
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
 body {font-family: Arial;
     position:center;}
@@ -410,13 +412,10 @@ body {font-family: Arial;
 	<div>
 		<ul>
 			<li><div class="logo">
-					<img class="logo-size" src="resources/images/logo.jpg"><a href="home.html">ShopDrop</a>
+					<img class="logo-size" src="resources/images/logo.jpg"><a href="index.jsp">ShopDrop</a>
 				</div></li>
 			<li><a class="cart-align" href="/OnlineShoppingProject/basicProduct">Products</a></li>
-			<li><a class="cart-align" href="order.html">Order</a></li>
-			<li><a class="cart-align" href="cart.html">Cart</a></li>
-			<li><a class="cart-align" href="userprofile.html">User
-					Profile</a></li>
+			
 			<div>
 				<input id="search" type="text"
 					placeholder="Search.." name="Search">
@@ -428,7 +427,7 @@ body {font-family: Arial;
 		</ul>
 	</div>
 <div>
-     <img class="mySlides" id="img-height" src="resources/images/4.jng">
+     <img class="mySlides" id="img-height" src="resources/images/4.jpg">
     <img class="mySlides" id="img-height" src="resources/images/5.jpg">
     <img class="mySlides" id="img-height" src="resources/images/6.jpg">
     <img class="mySlides" id="img-height" src="resources/images/7.jpg">
@@ -462,5 +461,15 @@ body {font-family: Arial;
     setTimeout(carousel, 2000); 
   }
   </script>
+  
+  <footer>
+        <div style="position: relative ; width: 100% ; overflow: hidden ; top: 150px ; background-color:#111">
+            <p style="width: 100% ; font-size: large ; text-align: center ;color: #f1f1f1">Website Content Managed By ShopDrop &copy; 2019</p>
+            <p style="width: 100% ; text-align: center ;color: #f1f1f1">Email :
+                <a style="color: #f1f1f1" href="maito:support@shopdrop.org">support@shopdrop.org</a>
+            </p>
+        </div>
+    </footer>
+  
 </body>
 </html>

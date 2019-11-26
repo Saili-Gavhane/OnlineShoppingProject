@@ -18,12 +18,12 @@
 
 
 
-<td>Address Line 1</td><td><input class="input" type="text" name="address1"></td>
+<td>Address Line 1</td><td><input class="input" type="text" name="address1" required></td>
 
-<td>Address Line 2</td><td><input class="input" type="text" name="address2"></td>
+<td>Address Line 2</td><td><input class="input" type="text" name="address2" required></td>
 </tr>
 <tr>
-<td>City</td><td><input class="input" type="text" name="city"></td>
+<td>City</td><td><input class="input" type="text" name="city" required></td>
 
 <td>State</td><td><select  class="input" name="state">
 
@@ -75,14 +75,7 @@
 <td>Retailer Id <input type="text" name="id" value="${retailer.retailer_id}"></td>
 
 
-<tr colspan="4" rowspan="3"><td ></td></tr>
 
-
-
-
-<td  colspan="4"><center><br>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</center></td>
-
-<tr>
     
 <tr>
 
@@ -90,7 +83,7 @@
 
 </tr>
 
-<tr><td colspan="4" align="center"><p class="container">Already have an account? <a href="#">Sign In</a>.</p></td></tr>
+
 </table>
 </form>
 </body>

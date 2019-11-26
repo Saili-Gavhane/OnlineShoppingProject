@@ -5,16 +5,17 @@
 <!DOCTYPE html>
 <html>
 <head>
+<title>Basic Products</title>
  <link href="<c:url value="/resources/css/navbar.css" />" rel="stylesheet"  type="text/css" /> 
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
 
 table, th, td {
-  <!--border: 1px black solid;-->
+  
   border-collapse: collapse;
 }
 th, td {
-  <!--padding: 5px;-->
+ 
   text-align: left;    
 }
 
@@ -56,7 +57,7 @@ h2{
   margin: auto;
 
   font-family: arial;
-  padding: 12px;
+  <!-- padding: 12px; -->
   
 }
 
@@ -327,7 +328,7 @@ body {font-family: Arial;
     }
 
     #img-height{
-      height: 330px;
+      height: 300px;
       width:100%;
     }
     
@@ -459,46 +460,15 @@ body {font-family: Arial;
 </head>
 <body>
 
-<!-- 
-  <div>
 
-<div class="topnav">
-  
-  <a href="#home">Home</a>
-  <a href="#home">Compare Products</a>
-  
-  <div class="dropdown">
-      <button class="dropbtn">Categories
-      <i class="fa fa-caret-down"></i>
-      </button>
-     <div class="dropdown-content">
-     <a href="#about">Men's Fashion</a>
- 	 <a href="#contact">Women's Fashion</a>
- 	 <a href="#home">Electronics</a>
-     <a href="#about">Home Decor</a>
-     </div>
-  <div   class="search-container" >
-			<form action="/action_page.php">
-      		<input type="text" placeholder="Search.." name="search">
-     		<button  style="background-color: #4CAF50" class="button" type="submit">Search</button>
-     		</form>
-    </div>
-  
-  </div>
-  
-  
-   -->
    
    <div>
 		<ul>
 			<li><div class="logo">
-					<img class="logo-size" src="resources/images/logo.jpg"><a href="home.html">ShopDrop</a>
+					<img class="logo-size" src="resources/images/logo.jpg"><a href="index.jsp">ShopDrop</a>
 				</div></li>
 			<li><a class="cart-align" href="/OnlineShoppingProject/basicProduct">Products</a></li>
-			<li><a class="cart-align" href="order.html">Order</a></li>
-			<li><a class="cart-align" href="cart.html">Cart</a></li>
-			<li><a class="cart-align" href="userprofile.html">User
-					Profile</a></li>
+			
 			<div>
 				
 				<a id="login" class="cart-align" href="userLogin.jsp">Sign In</a> <a
@@ -509,23 +479,14 @@ body {font-family: Arial;
 	</div>
 
 
- <div class="outline">
-                    <label style="font-weight: bold;">Sort by:</label><br>
-                    <div id="filter">
-                        <fieldset id="priceFieldset" style="border: none;">
-                            <label><input name="priceFieldset" type="radio"
-                                value="lowToHigh" />Low to High</label> <br>
-                            <label><input name="priceFieldset" type="radio"
-                                value="HighToLow" />High to Low</label>
-                        </fieldset>
-                    </div>
-                </div>
+                
+
  <c:forEach items="${listProduct}" var="Product">
  <center>
   <table class ="card" style="width:100%" >
 
     <tr>
-      <td colspan="2"><img src="${pageContext.request.contextPath}/resources/images/9.jpg" alt="Smiley face" height="200" width="130"></td>
+      <td colspan="2"><img src="http://localhost:7777/ShopDropImageServer/images/${Product.product_image}" alt="Product Image" height="200" width="130"></td>
       </tr>
       <tr>
       <td colspan="2"><h2>${Product.product_name}</h2></td>
@@ -534,8 +495,8 @@ body {font-family: Arial;
     </tr>
   <tr >
   <td colspan="2">
-  <pre>${Product.description}
-  </pre></td>
+ ${Product.description}
+  </td>
   </tr>
  
   
@@ -546,7 +507,7 @@ body {font-family: Arial;
   <tr >
   <td ><button>Add to Cart</button><br><br>
   <a href=""><button>Add to Wishlist</button></a><br><br>
-  <button>Compare with Similiar Items</button></td>
+ 
   </tr>
   </table>
   </center>
@@ -554,6 +515,15 @@ body {font-family: Arial;
 
 <br>
 <br>
+
+<footer>
+        <div style="position: relative ; width: 100% ; overflow: hidden ; top: 150px ; background-color:#111">
+            <p style="width: 100% ; font-size: large ; text-align: center ;color: #f1f1f1">Website Content Managed By ShopDrop &copy; 2019</p>
+            <p style="width: 100% ; text-align: center ;color: #f1f1f1">Email :
+                <a style="color: #f1f1f1" href="maito:support@shopdrop.org">support@shopdrop.org</a>
+            </p>
+        </div>
+    </footer>
 
 </body>
 </html>

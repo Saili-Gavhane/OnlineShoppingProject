@@ -143,4 +143,13 @@ public class Orders {
 		this.useraddress = useraddress;
 	}
 
+	@Override
+	public String toString() {
+		return "Orders [order_id=" + order_id + ", order_ship_name=" + order_ship_name + ", order_date=" + order_date
+				+ ", delivery_charges=" + delivery_charges + ", order_tracking_no=" + order_tracking_no
+				+ ", order_status=" + order_status + ", order_amount=" + order_amount + ", order_delivery_date="
+				+ order_delivery_date + ", remark=" + remark + ", user2=" + user2 + ", useraddress=" + useraddress
+				+ "]";
+	}
+
 }

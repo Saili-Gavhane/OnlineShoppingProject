@@ -64,7 +64,7 @@ public class ProductController {
 		incomingProduct.setProduct_base_price(base_price);
 		incomingProduct.setDescription(description);
 		
-		String path ="D:/ShopDrop_Images/";
+		String path ="http://localhost:7777/ShopDropImageServer/images/";
 		
 		String finalpath = path + m.getOriginalFilename();
 		
