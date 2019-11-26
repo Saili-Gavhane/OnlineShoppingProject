@@ -64,9 +64,10 @@ public class ProductController {
 		incomingProduct.setProduct_base_price(base_price);
 		incomingProduct.setDescription(description);
 		
-		String path ="http://localhost:7777/ShopDropImageServer/images/";
+		String path ="D:\\Java Track\\DevOPs\\Jenkins\\production\\apache-tomcat-8.0.36\\webapps\\ShopDropImageServer\\images";
 		
 		String finalpath = path + m.getOriginalFilename();
+		//String databasepath="http://localhost:7777/ShopDropImageServer/images/";
 		
 		try {
 			m.transferTo(new File(finalpath));
@@ -75,7 +76,7 @@ public class ProductController {
 			e.printStackTrace();
 		}
 		
-		incomingProduct.setProduct_image(finalpath);
+		incomingProduct.setProduct_image(m.getOriginalFilename());
 		incomingProduct.setProduct_update_date(dtf.format(now)); 
 		incomingProduct.setApproval_status("Unapproved");
 		incomingProduct.setBrand1(brand);

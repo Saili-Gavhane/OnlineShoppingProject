@@ -8,6 +8,5 @@
 </head>
 <body>
 payment success
-Your order is placed and will be 
 </body>
 </html>
