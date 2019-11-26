@@ -57,7 +57,7 @@ font-family: arial;
         </tr>
        
     </table>
-   <a href="userLoginSuccess.jsp">Go to Homepage</a>
+   <a href="/OnlineShoppingProject/userRedirect?id=${user.user_id}">Go to Homepage</a>
 
 </body>
 </html>

@@ -98,23 +98,15 @@ public class UserController {
 		
 		return model;
 	}
-	/*@RequestMapping(value="/logout",method=RequestMethod.POST)
+	@RequestMapping(value="/logout",method=RequestMethod.POST)
 	public ModelAndView UserLogout (HttpSession session)
 	{
-     	
+     	session.invalidate();
 		ModelAndView model = null;
-		if(u==null)
-		{
-			model = new  ModelAndView("loginfailed");
-		}
-		else
-		{
-			model = new  ModelAndView("userLoginSuccess");
-			model.addObject("user",u);
-		}
 		
-		return model;
-	}*/
+			model = new  ModelAndView("home");
+		    return model;
+	}
 	
 	@RequestMapping(value="/logout",method=RequestMethod.GET)
 	public ModelAndView logout (HttpSession session)
@@ -126,6 +118,14 @@ public class UserController {
 			model = new  ModelAndView("home");
 	
 		
+		return model;
+	}
+	@RequestMapping(value="/userRedirect",method=RequestMethod.GET)
+	public ModelAndView userRedirect (@RequestParam int id)
+	{   User u = userService.findById(id);
+		ModelAndView model = null;
+		model = new  ModelAndView("userLoginSuccess");
+		model.addObject("user",u);
 		return model;
 	}
 

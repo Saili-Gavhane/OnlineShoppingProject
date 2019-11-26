@@ -469,7 +469,7 @@ body {font-family: Arial;
 			
 			<div>
 				
-				<a id="logout" class="cart-align" href="userLogin.jsp">Sign Out</a> 
+				<a id="logout" class="cart-align" href="/OnlineShoppingProject/logout">Logout</a> 
 					
 				<a id="userEmail" class="cart-align" href="#" style="color: white"></a>
 			</div>
