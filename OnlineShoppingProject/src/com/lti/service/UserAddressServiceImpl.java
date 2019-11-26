@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.lti.model.User;
 import com.lti.model.UserAddress;
 import com.lti.repository.UserAddressRepository;
 
@@ -34,6 +35,10 @@ public class UserAddressServiceImpl implements UserAddressService {
 	public List<UserAddress> findAllUserAddresses() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	public UserAddress findByUser(User u)
+	{
+		return userAddressRepository.findByUser(u);
 	}
 
 }

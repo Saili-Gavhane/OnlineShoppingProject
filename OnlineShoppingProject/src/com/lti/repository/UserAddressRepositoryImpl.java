@@ -4,10 +4,12 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
 
+import com.lti.model.User;
 import com.lti.model.UserAddress;
 
 @Repository("userAddressRepository")
@@ -21,6 +23,14 @@ public class UserAddressRepositoryImpl implements UserAddressRepository {
 		ua=em.merge(ua);
 		em.persist(ua);
 		return ua;
+	}
+	public UserAddress findByUser(User u) {
+		String q="Select u from UserAddress u where u.user_id =?1";
+		TypedQuery<UserAddress> query = em.createQuery(q,UserAddress.class);
+		query.setParameter(1,u.getUser_id());
+	
+		UserAddress u1= query.getSingleResult();
+		return u1;
 	}
 
 	@Override

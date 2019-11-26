@@ -79,7 +79,7 @@ button{
 		</tr>
 	</table>
 	<br>
-	<a href="/OnlineShoppingProject/removeFromCart?id=${item.product.product_id }"><button>Place Order</button></a> 
+	<a href="/OnlineShoppingProject/placeOrder?total=${total}"><button>Place Order</button></a> 
 	<a href="/OnlineShoppingProject/viewProductCart"><button>Continue
 		Shopping</button></a>
 		
