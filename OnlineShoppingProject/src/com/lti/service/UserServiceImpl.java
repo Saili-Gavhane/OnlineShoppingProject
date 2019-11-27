@@ -49,7 +49,7 @@ public class UserServiceImpl implements UserService {
 		{
 			
 		}
-		else if(uDB.getUser_email().equals(u.getUser_email()))
+		else if(uDB.getUser_email().equals(u.getUser_email())&&uDB.getUser_password().equals(u.getUser_password()))
 		{
 			userToBeReturned = uDB;
 		}

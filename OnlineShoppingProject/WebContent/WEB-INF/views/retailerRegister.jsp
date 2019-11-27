@@ -1,71 +1,49 @@
-<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
- <link href="<c:url value="/resources/css/navbar.css" />" rel="stylesheet"  type="text/css" /> 
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<meta charset="ISO-8859-1">
+<title>Retailer Sign Up Page</title>
 <style>
+ body {
+ font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;}  
 
-table, th, td {
-  
-  border-collapse: collapse;
-}
-th, td {
- 
-  text-align: left;    
-}
+           
+ .input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 5px;
+}  
 
 
-.price {
-  color: grey;
-  font-size: 22px;
-}
-
-
-.card button {
-  border: none;
-  outline: 1px;
-  padding: 10px;
-  color: white;
+.button {
   background-color: #4CAF50;
-  text-align: center;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
   cursor: pointer;
-  <!-- width: 25%;-->
-  font-size: 16px;
-}
-
-.card button:hover {
-  opacity: 0.7;
-}
-
-
-h2{ 
-                color:green; 
-                text-align:left; 
-            } 
-
-
-
- .card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  width: 100%;
 
   
-  margin: auto;
-
-  font-family: arial;
-  <!-- padding: 12px; -->
-  
+}
+.button:hover {
+  opacity: 0.8;
+ 
 }
 
-pre{
-font-size: 16px;
- font-family: arial;
+.container {
+  padding: 16px;
+  background-color: white;
 }
-
+<style>
 body {font-family: Arial;
     position:center;}
     	
@@ -328,7 +306,7 @@ body {font-family: Arial;
     }
 
     #img-height{
-      height: 300px;
+      height: 330px;
       width:100%;
     }
     
@@ -456,69 +434,144 @@ body {font-family: Arial;
 	#retailer-display{
 	display:inline;
 	}
-</style>
+    
+ body {
+ font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;}  
+
+           
+ .input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 5px;
+}  
+
+
+.button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+
+  
+}
+.button:hover {
+  opacity: 0.8;
+ 
+}
+
+.container {
+  padding: 16px;
+  background-color: white;
+}</style>
+
+
+<script> 
+          
+            // Function to check Whether both passwords 
+            // is same or not. 
+            function checkPassword(form) { 
+                password = form.password.value; 
+                confirmpassword = form.confirmpassword .value; 
+  
+                // If password not entered 
+                if (password == '') 
+                    alert ("Please enter Password"); 
+                      
+                // If confirm password not entered 
+                else if (password == '') 
+                    alert ("Please enter confirm password"); 
+                      
+                // If Not same return False.     
+                else if (password != confirmpassword) { 
+                    alert ("\nPassword did not match: Please try again...") 
+                    return false; 
+                } 
+                /*
+                // If same return True. 
+                else{ 
+                    alert(Registered ") 
+                    return true; 
+                } 
+                */
+    
+            } 
+        </script> 
 </head>
 <body>
+ <div>
+        <ul>
+            <li><div class="logo">
+                    <img class="logo-size" src="resources/images/logo.jpg"></img>ShopDrop
+                </div></li>
+    </div>
+</ul>
+</div>
+<form action="/OnlineShoppingProject/addRetailer" method="Post" onSubmit = "return checkPassword(this)">
+<center><h2>Sign Up to Sell Products on ShopDrop</h2></center>
+<table align="center">
 
-<div>
-		<ul>
-			<li><div class="logo">
-					<img class="logo-size" src="resources/images/logo.jpg"><a href="index.jsp">ShopDrop</a>
-				</div></li>
-			<li><a class="cart-align" href="/OnlineShoppingProject/basicProduct">Products</a></li>
-			
-			<div>
-				
-				<a id="logout" class="cart-align" href="/OnlineShoppingProject/logout">Logout</a> 
-					
-				<a id="userEmail" class="cart-align" href="#" style="color: white"></a>
-			</div>
-		</ul>
- 
-  
 
- <c:forEach items="${listProduct}" var="Product">
- <center>
-  <table class ="card" style="width:100%" >
+<tr><td colspan="4"><b><h3>General Details</h3></b></td></tr>
+<tr>
+<td>Bussiness Name</td><td><input type="text" class="input" name="name" required></td>
 
-    <tr>
-      <td colspan="2"><img src="http://localhost:7771/ShopDropImageServer/images/${Product.product_image}" alt="Smiley face" height="200" width="130"></td>
-      </tr>
-      <tr>
-      <td colspan="2"><h2>${Product.product_name}</h2></td>
-     
-      
-    </tr>
-  <tr >
-  <td colspan="2">
-  <pre>${Product.description}
-  </pre></td>
-  </tr>
-  
-  <tr>
-  <td class="price" colspan="2">Rs. ${Product.product_base_price}</td>
-  </tr>
-  
-  <tr >
-  <td ><a href="/OnlineShoppingProject/addToCart?pid=${Product.product_id}&q=1"><button>Add to Cart</button></a><br><br>
-  <a href="/OnlineShoppingProject/addToWishlist?id=${Product.product_id}"><button>Add to Wishlist</button></a><br><br>
-  <button>Compare with Similiar Items</button></td>
-  </tr>
-  </table>
-  </center>
- </c:forEach>
+<td>Email Id</td><td><input type="text" class="input" name="email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"></td>
+</tr>
 
-<br>
-<br>
+<tr>
+<td>GST Number</td><td><input type="text"  class="input" name="GSTNo"  pattern="^[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[1-9A-Z]{1}Z[0-9A-Z]{1}$"></td>
 
-<footer>
-        <div style="position: relative ; width: 100% ; overflow: hidden ; top: 150px ; background-color:#111">
-            <p style="width: 100% ; font-size: large ; text-align: center ;color: #f1f1f1">Website Content Managed By ShopDrop &copy; 2019</p>
-            <p style="width: 100% ; text-align: center ;color: #f1f1f1">Email :
-                <a style="color: #f1f1f1" href="maito:support@shopdrop.org">support@shopdrop.org</a>
-            </p>
-        </div>
-    </footer>
+<td>Contact Number</td><td><input type="text" class="input" name="mobile_no" pattern="[7-9]{1}[0-9]{9}" maxlength="10"></td>
+</tr>
 
+<tr>
+<td>PAN</td><td><input type="text" class="input" name="PAN_no"></td>
+
+<td>Aadhar Number</td><td><input type="text" class="input" name="aadhar_no" pattern="[0-9]{12}" maxlength="12"></td>
+</tr>
+<tr>
+<td>Password</td><td><input type="password" class="input" name="password" required></td>
+
+<td>Confirm Password</td><td><input  class="input" type="password" name="confirmpassword"></td>
+</tr>
+
+
+<tr colspan="4" rowspan="3"><td ></td></tr>
+
+
+<tr><td colspan="4"><b><h3>Bank Details</h3></b></td></tr>
+<tr>
+<td>Account No.</td><td><input type="text" class="input" name="account_no"  pattern="[0-9]{12}" maxlength="12"></td>
+<td>Account Holder's Name</td><td><input type="text" class="input" name="holder_name"></td>
+</tr>
+<tr>
+<tr>
+<td>Bank Name</td><td><input type="text" class="input" name="bank_name" required></td>
+<td>IFSC Code</td><td><input type="text" class="input" name="code" required></td>
+<tr>
+<td >Branch</td><td><input type="text" class="input" name="branch" required></td>
+<!-- </tr>
+
+<td  colspan="4"><center><br>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</center></td>
+
+<tr>
+ -->
+    
+<tr>
+
+<td colspan="4" align="center"><center><input class="button" type="submit" value="Proceed" ></center></td>
+
+</tr>
+
+</table>
+</form>
 </body>
 </html>

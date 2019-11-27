@@ -79,7 +79,8 @@ public class AdminController {
 			ModelAndView model = null;
 			if(listRetailer==null)
 			{
-				model = new  ModelAndView("loginfailed");
+				model = new  ModelAndView("AdminLoginSuccess");
+				//model = new  ModelAndView("loginfailed");
 			}
 			else
 			{

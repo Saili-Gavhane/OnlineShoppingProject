@@ -427,7 +427,7 @@ body {font-family: Arial;
 		</ul>
 	</div>
 <div>
-     <img class="mySlides" id="img-height" src="resources/images/4.jng">
+     <img class="mySlides" id="img-height" src="resources/images/4.jpg">
     <img class="mySlides" id="img-height" src="resources/images/5.jpg">
     <img class="mySlides" id="img-height" src="resources/images/6.jpg">
     <img class="mySlides" id="img-height" src="resources/images/7.jpg">

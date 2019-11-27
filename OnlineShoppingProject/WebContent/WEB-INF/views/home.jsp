@@ -413,14 +413,11 @@ body {font-family: Arial;
 					<img class="logo-size" src="resources/images/logo.jpg"><a href="home.html">ShopDrop</a>
 				</div></li>
 			<li><a class="cart-align" href="/OnlineShoppingProject/basicProduct">Products</a></li>
-			<li><a class="cart-align" href="order.html">Order</a></li>
-			<li><a class="cart-align" href="cart.html">Cart</a></li>
-			<li><a class="cart-align" href="userprofile.html">User
-					Profile</a></li>
+			
 			<div>
-				<input id="search" type="text"
-					placeholder="Search.." name="Search">
-				<button type="submit">Search</button>
+				
+				<a id="login" class="cart-align" href="/OnlineShoppingProject/RetailerPage">Retailer Sign In</a>
+					<a id="login" class="cart-align" href="/OnlineShoppingProject/RetailerRegister">Retailer Sign Up</a>
 				<a id="login" class="cart-align" href="userLogin.jsp">Sign In</a> <a
 					id="register" class="cart-align" href="userRegistration.jsp">Sign Up</a>
 				<a id="userEmail" class="cart-align" href="#" style="color: white"></a>

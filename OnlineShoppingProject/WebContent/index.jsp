@@ -422,6 +422,8 @@ body {font-family: Arial;
 				<button type="submit">Search</button>
 				<a id="login" class="cart-align" href="userLogin.jsp">Sign In</a> <a
 					id="register" class="cart-align" href="userRegistration.jsp">Sign Up</a>
+					<a id="login" class="cart-align" href="/OnlineShoppingProject/RetailerPage">Retailer Sign In</a>
+					<a id="login" class="cart-align" href="/OnlineShoppingProject/RetailerRegister">Retailer Sign Up</a>
 				<a id="userEmail" class="cart-align" href="#" style="color: white"></a>
 			</div>
 		</ul>

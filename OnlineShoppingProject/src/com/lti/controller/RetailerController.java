@@ -101,6 +101,26 @@ public class RetailerController {
 		
 		return model;
 	}
-}
+	
+	/////////////////
+	
+	@RequestMapping(value="/RetailerPage",method=RequestMethod.GET)
+	public ModelAndView RetailerLoginPage ()
+	{
+		ModelAndView model = new  ModelAndView("retailerLogin");
+		return model;
+		
+	}
+	
+	////////////////
+	@RequestMapping(value="/RetailerRegister",method=RequestMethod.GET)
+	public ModelAndView RetailerRegisterPage ()
+	{
+		ModelAndView model = new  ModelAndView("retailerRegister");
+		return model;
+		
+	}
+	}
+
 
 

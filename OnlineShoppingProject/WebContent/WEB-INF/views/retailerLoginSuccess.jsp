@@ -408,94 +408,60 @@ body {font-family: Arial;
 </head>
 <body>
 
- <div>
-        <ul>
-                <li><div class="logo">
-                        <img class="logo-size" src="img/logo.jpg"><a href="home.html">ShopDrop</a>
-                    </div></li>
-                <li><a class="cart-align" href="products.html">Products</a></li>
-               
-                <li><a class="cart-align" href="cart.html">Cart</a></li>
-                <li><a class="cart-align" href="userprofile.html">User Profile</a></li>
-                <div>
-                    <input id="search" type="text"
-                        placeholder="What are you lookign for?.." name="search">
-                    <button type="submit">Search</button>
-                    <a id="login" class="cart-align" href="login.html">Login</a>
-                     <a
-                        id="register" class="cart-align" href="register.html">Register</a>-->
-                    <a id="logout" class="cart-align" href="logout.html">Logout</a> <a
-                        id="userEmail" class="cart-align" href="#" style="color: white"></a>
-                </div>
-            </ul>
-        </div>
+<div>
+		<ul>
+			<li><div class="logo">
+					<img class="logo-size" src="resources/images/logo.jpg"><a href="#">ShopDrop</a>
+				</div></li>
+			
+			<li><a class="cart-align" href="/OnlineShoppingProject/userProfile?id=${retailer.retailer_id}">User
+					Profile</a></li>
+			<div>
+				
+				<a id="logout" class="cart-align" href="/OnlineShoppingProject/logout">Logout</a> 
+				<a id="userEmail" class="cart-align" href="#" style="color: white"></a>
+			</div>
+		</ul>
+	</div>
+
+
+   
+<center>    
     
-        <!--<div class="header">User Profile</div>-->
-     <!--         
- <div class="form-container" id="myform">
- <form>
-               
-            <br><br>
-               
-               
-               
-
-   <form action="/OnlineShoppingProject/Id" method="post">
-    Retailer Id: <input type="text" name="id" value="${retailer.retailer_id}">
-    <input class="button" type="submit" value="Add Product" />
-</form>
-   
-   <form  action="/OnlineShoppingProject/viewProduct">
-   <input class="button" type="submit" value="View Products" />
-   </form>
-   
-   
-  
-   <form  action="updateProduct.jsp">
-   <input class="button" type="submit" value="Update Product" />
-   </form>
-   
- 
-   
-   <form  action="updateProduct.jsp">
-   <input class="button" type="submit" value="Delete Product" />
-   </form>
-   
-  
-                    
-              
-            
-            
-            
-
- </div>
-        
-     -->   
-
-
-   
-    
-    
-
+<table>
+<tr>
+<td>
 <form action="/OnlineShoppingProject/Id" method="post">
-    Retailer Id: <input type="text" name="id" value="${retailer.retailer_id}">
-    <input class="button" type="submit" value="Add Product" />
-</form>
 
-<form  class="button"  action="updateProduct.jsp">
-     
-    <input type="submit" value="Update Product" />
-</form>
-<form  class="button" action="deleteProduct.jsp">
-     
-    <input type="submit" value="Delete Product" />
-</form>
-<form  class="button"  action="/OnlineShoppingProject/viewProduct">
-     
-    <input type="submit" value="View Products" />
-</form>
+<h2>Welcome  ${retailer.retailer_name}</h2>
 
+  <input type="hidden" name="id" value="${retailer.retailer_id}">
+  <input class="button" type="submit" value="Add Product" />
+</form>
+</td></tr>
 
+<tr>
+<td>
+<form action="#" method="post">
+
+  <input type="hidden" name="id" value="${retailer.retailer_id}">
+  <input class="button" type="submit" value="Update Product" />
+</form>
+</td></tr>
+
+<tr>
+<td>
+<form action="#" method="post">
+
+  <input type="hidden" name="id" value="${retailer.retailer_id}">
+  <input class="button" type="submit" value="Delete Product" />
+</form>
+</td></tr>
+
+</tr>
+</table>
+
+</center>
 
 </body>
 </html>

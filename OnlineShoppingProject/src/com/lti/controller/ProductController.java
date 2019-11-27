@@ -48,15 +48,15 @@ public class ProductController {
 	
 	@RequestMapping(value="/addProduct",method=RequestMethod.POST)
 	@ResponseBody
-	public ModelAndView addProduct(@RequestParam String name,@RequestParam float base_price,@RequestParam String category,@RequestParam String description,@RequestParam String brand_name,@RequestParam int product_count,@RequestParam("image") MultipartFile m)
+	public ModelAndView addProduct(@RequestParam String name,@RequestParam float base_price,@RequestParam String category,@RequestParam String description,@RequestParam String brand_name,@RequestParam int product_count,@RequestParam("image") MultipartFile m,@RequestParam int id)
 	{
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
 		LocalDateTime now = LocalDateTime.now();
 		Product incomingProduct = new Product();
 		Stock stock = new Stock();
 		
-		Retailer r1=retailerService.findById(1);
-		System.out.println(r1);
+		Retailer r1=retailerService.findById(id);
+		
 		Category category1=categoryService.findByName(category);
 		Brand brand = brandService.findByName(brand_name);
 		
@@ -64,7 +64,7 @@ public class ProductController {
 		incomingProduct.setProduct_base_price(base_price);
 		incomingProduct.setDescription(description);
 		
-		String path ="D:\\Java Track\\DevOPs\\Jenkins\\production\\apache-tomcat-8.0.36\\webapps\\ShopDropImageServer\\images";
+		String path ="D:/Java Track/DevOPs/Jenkins/production/apache-tomcat-8.0.36/webapps/ShopDropImageServer/images/";
 		
 		String finalpath = path + m.getOriginalFilename();
 		//String databasepath="http://localhost:7777/ShopDropImageServer/images/";
@@ -83,7 +83,7 @@ public class ProductController {
 		incomingProduct.setCategory(category1);
 		incomingProduct.setRetailer(r1);
 		Product p = productService.addProduct(incomingProduct);
-		System.out.println(p);
+		
 		Product p1 = productService.findById(p.getProduct_id());
 		stock.setProduct_count(product_count);
 		stock.setProduct(p1);

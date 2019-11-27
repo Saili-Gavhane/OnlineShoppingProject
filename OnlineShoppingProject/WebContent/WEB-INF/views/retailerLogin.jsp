@@ -1,71 +1,17 @@
-<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    
+    <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
- <link href="<c:url value="/resources/css/navbar.css" />" rel="stylesheet"  type="text/css" /> 
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="<c:url value="/resources/css/text.css" />" rel="stylesheet"  type="text/css" />
+<meta charset="ISO-8859-1">
+<title>Retailer Sign In Page</title>
+
 <style>
-
-table, th, td {
-  
-  border-collapse: collapse;
-}
-th, td {
- 
-  text-align: left;    
-}
-
-
-.price {
-  color: grey;
-  font-size: 22px;
-}
-
-
-.card button {
-  border: none;
-  outline: 1px;
-  padding: 10px;
-  color: white;
-  background-color: #4CAF50;
-  text-align: center;
-  cursor: pointer;
-  <!-- width: 25%;-->
-  font-size: 16px;
-}
-
-.card button:hover {
-  opacity: 0.7;
-}
-
-
-h2{ 
-                color:green; 
-                text-align:left; 
-            } 
-
-
-
- .card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-
-  
-  margin: auto;
-
-  font-family: arial;
-  <!-- padding: 12px; -->
-  
-}
-
-pre{
-font-size: 16px;
- font-family: arial;
-}
-
 body {font-family: Arial;
     position:center;}
     	
@@ -328,7 +274,7 @@ body {font-family: Arial;
     }
 
     #img-height{
-      height: 300px;
+      height: 330px;
       width:100%;
     }
     
@@ -456,69 +402,71 @@ body {font-family: Arial;
 	#retailer-display{
 	display:inline;
 	}
-</style>
+    
+ body {
+ font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;}  
+
+           
+ .input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 5px;
+}  
+
+
+.button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+
+  
+}
+.button:hover {
+  opacity: 0.8;
+ 
+}
+
+.container {
+  padding: 16px;
+  background-color: white;
+}</style>
 </head>
 <body>
 
 <div>
-		<ul>
-			<li><div class="logo">
-					<img class="logo-size" src="resources/images/logo.jpg"><a href="index.jsp">ShopDrop</a>
-				</div></li>
-			<li><a class="cart-align" href="/OnlineShoppingProject/basicProduct">Products</a></li>
-			
-			<div>
-				
-				<a id="logout" class="cart-align" href="/OnlineShoppingProject/logout">Logout</a> 
-					
-				<a id="userEmail" class="cart-align" href="#" style="color: white"></a>
-			</div>
-		</ul>
- 
-  
+        <ul>
+            <li><div class="logo">
+                    <img class="logo-size" src="resources/images/logo.jpg"></img>ShopDrop
+                </div></li>
+    </div>
+</ul>
+</div>
+<form action="/OnlineShoppingProject/RetailerLogin" method="Post">
+<center><h2>Retailer Login </h2></center>
+<table align="center">
+<tr>
+<td>Email Id</td><td><input class="input" placeholder="Email"  type="text" name="username"></td>
+</tr>
+<tr>
+<td>Password</td><td><input class="input"   placeholder="Password" type="password" name="password"></td>
+</tr>
+<tr>
+<td colspan="2" align="center"><input class="button" type="submit" value="Sign In"></td>
+</tr>
 
- <c:forEach items="${listProduct}" var="Product">
- <center>
-  <table class ="card" style="width:100%" >
-
-    <tr>
-      <td colspan="2"><img src="http://localhost:7771/ShopDropImageServer/images/${Product.product_image}" alt="Smiley face" height="200" width="130"></td>
-      </tr>
-      <tr>
-      <td colspan="2"><h2>${Product.product_name}</h2></td>
-     
-      
-    </tr>
-  <tr >
-  <td colspan="2">
-  <pre>${Product.description}
-  </pre></td>
-  </tr>
-  
-  <tr>
-  <td class="price" colspan="2">Rs. ${Product.product_base_price}</td>
-  </tr>
-  
-  <tr >
-  <td ><a href="/OnlineShoppingProject/addToCart?pid=${Product.product_id}&q=1"><button>Add to Cart</button></a><br><br>
-  <a href="/OnlineShoppingProject/addToWishlist?id=${Product.product_id}"><button>Add to Wishlist</button></a><br><br>
-  <button>Compare with Similiar Items</button></td>
-  </tr>
-  </table>
-  </center>
- </c:forEach>
-
-<br>
-<br>
-
-<footer>
-        <div style="position: relative ; width: 100% ; overflow: hidden ; top: 150px ; background-color:#111">
-            <p style="width: 100% ; font-size: large ; text-align: center ;color: #f1f1f1">Website Content Managed By ShopDrop &copy; 2019</p>
-            <p style="width: 100% ; text-align: center ;color: #f1f1f1">Email :
-                <a style="color: #f1f1f1" href="maito:support@shopdrop.org">support@shopdrop.org</a>
-            </p>
-        </div>
-    </footer>
-
+<tr>
+<td colspan="2" align="center"><a href="">Forgot Password?</a></td>
+</tr>
+</table>
+</form>
 </body>
 </html>
